@@ -364,6 +364,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d6c73af82063f94cacecb9fcf7dcf77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Core>k__BackingField: {fileID: 0}
   anim: {fileID: 0}
 --- !u!1 &551741461
 GameObject:
@@ -409,6 +410,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc91c94809733484ba94aab0ae3f9281, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Core>k__BackingField: {fileID: 0}
   anim: {fileID: 0}
 --- !u!1 &619394800
 GameObject:
@@ -536,6 +538,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 549907de094513f429cee2c54626cb59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Core>k__BackingField: {fileID: 0}
   anim: {fileID: 0}
 --- !u!1 &1875823528
 GameObject:
@@ -773,6 +776,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 196972972194010856, guid: 1027afe296be989418acb3038e6d2153, type: 3}
+      propertyPath: m_RendererIndex
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 196972972194010856, guid: 1027afe296be989418acb3038e6d2153, type: 3}
+      propertyPath: m_RenderPostProcessing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 196972972194010857, guid: 1027afe296be989418acb3038e6d2153, type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0.49056602
+      objectReference: {fileID: 0}
+    - target: {fileID: 196972972194010857, guid: 1027afe296be989418acb3038e6d2153, type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0.45386606
+      objectReference: {fileID: 0}
+    - target: {fileID: 196972972194010857, guid: 1027afe296be989418acb3038e6d2153, type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0.40494835
+      objectReference: {fileID: 0}
     - target: {fileID: 196972972194010858, guid: 1027afe296be989418acb3038e6d2153, type: 3}
       propertyPath: m_Name
       value: Main Camera
@@ -789,6 +812,10 @@ PrefabInstance:
     - target: {fileID: 2316172921149391536, guid: f62432824b031aa4a8b25afc8f11be0a, type: 3}
       propertyPath: m_Name
       value: Global Volume
+      objectReference: {fileID: 0}
+    - target: {fileID: 2316172921149391536, guid: f62432824b031aa4a8b25afc8f11be0a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2316172921149391538, guid: f62432824b031aa4a8b25afc8f11be0a, type: 3}
       propertyPath: m_RootOrder
