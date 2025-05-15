@@ -1,7 +1,6 @@
 // Made by Niek Melet on 15/5/2025
 
 using FistFury.StateMachine.States;
-using Unity.VisualScripting;
 using UnityEngine;
 using State = FistFury.StateMachine.State;
 

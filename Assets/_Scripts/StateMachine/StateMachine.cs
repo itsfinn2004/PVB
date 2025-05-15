@@ -1,7 +1,6 @@
 // Made by Niek Melet on 15/5/2025
 
 using System.Collections.Generic;
-using FistFury.Entities;
 
 namespace FistFury.StateMachine
 {
@@ -31,7 +30,9 @@ namespace FistFury.StateMachine
 
             // add the current state
             list.Add(CurrentState);
-            return CurrentState.ChildStateMachine.GetActiveStates(list);
+            CurrentState.ChildStateMachine?.GetActiveStates(list);
+
+            return list;
         }
     }
 }

@@ -1,4 +1,4 @@
-// Made by Niek Melet on 15/5/2025
+﻿// Made by Niek Melet on 15/5/2025
 
 using System.Collections.Generic;
 
@@ -37,7 +37,8 @@ namespace FistFury.Entities
             if (Application.isPlaying && CurrentState)
             {
                 List<State> states = StateMachine.GetActiveStates();
-                UnityEditor.Handles.Label(transform.position, "Active States: " + string.Join(" > ", states));
+                Vector3 position = new Vector3(transform.position.x - 2, transform.position.y + 1, transform.position.z);
+                UnityEditor.Handles.Label(position, "Active States: " + string.Join(" > ", states));
             }
         }
 
