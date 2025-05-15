@@ -40,10 +40,13 @@ Material:
     m_Floats:
     - _Brightness: 1.09
     - _Contrast: 1.058
-    - _Curvature: 0
+    - _Curvature: 0.192
     - _EnableExternalAlpha: 0
     - _Flicker: 0.0139
     - _NoiseIntensity: 0.116
+    - _PaniniCropFit: 0.5
+    - _PaniniCropToFit: 0.6
+    - _PaniniDistance: 0.29
     - _RGBShift: 0.92
     - _ScanlineCount: 117
     - _ScanlineIntensity: 0.107

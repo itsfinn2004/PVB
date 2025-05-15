@@ -16,7 +16,9 @@ MonoBehaviour:
   Settings:
     RenderPassEvent: 550
     CRTMaterial: {fileID: 2100000, guid: 26bcb09571aeac645b47c3d414866d77, type: 2}
-    Curvature: 0
+    Curvature: 0.192
+    PaniniDistance: 0.29
+    PaniniCropToFit: 0.6
     ScanlineIntensity: 0.107
     ScanlineCount: 117
     ScanlineSpeed: 2
