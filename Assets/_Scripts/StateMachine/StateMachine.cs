@@ -1,7 +1,7 @@
 // Made by Niek Melet on 15/5/2025
 
-using FistFury.Entities;
 using UnityEngine;
+using FistFury.Entities;
 
 namespace FistFury.StateMachine
 {
