@@ -1,5 +1,31 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-5636614661228667691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 933cbadf29283354f81d7241bf22a686, type: 3}
+  m_Name: CrtRenderFeature
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  Settings:
+    RenderPassEvent: 550
+    CRTMaterial: {fileID: 2100000, guid: 26bcb09571aeac645b47c3d414866d77, type: 2}
+    Curvature: 0
+    ScanlineIntensity: 0.107
+    ScanlineCount: 117
+    ScanlineSpeed: 2
+    RgbShift: 0.92
+    Brightness: 1.09
+    Contrast: 1.058
+    Flicker: 0.0139
+    VignetteIntensity: 0.181
+    NoiseIntensity: 0.116
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10,12 +36,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 11145981673336645838492a2d98e247, type: 3}
-  m_Name: Renderer2D
+  m_Name: Renderer
   m_EditorClassIdentifier: 
   debugShaders:
     debugReplacementPS: {fileID: 4800000, guid: cf852408f2e174538bcd9b7fda1c5ae7, type: 3}
-  m_RendererFeatures: []
-  m_RendererFeatureMap: 
+  m_RendererFeatures:
+  - {fileID: -5636614661228667691}
+  m_RendererFeatureMap: d5dcb465d4b8c6b1
   m_UseNativeRenderPass: 0
   m_TransparencySortMode: 0
   m_TransparencySortAxis: {x: 0, y: 1, z: 0}

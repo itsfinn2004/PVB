@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: CRT
+  m_Name: CRT Filter
   m_Shader: {fileID: 4800000, guid: 233307687c6c9a0408bd25c820436ecd, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -38,16 +38,17 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Brightness: 1.2
-    - _Contrast: 1.1
-    - _Curvature: 0.1
+    - _Brightness: 1.09
+    - _Contrast: 1.058
+    - _Curvature: 0
     - _EnableExternalAlpha: 0
-    - _Flicker: 0.03
-    - _NoiseIntensity: 0.05
-    - _RGBShift: 0.5
-    - _ScanlineCount: 900
-    - _ScanlineIntensity: 0.5
-    - _VignetteIntensity: 0.3
+    - _Flicker: 0.0139
+    - _NoiseIntensity: 0.116
+    - _RGBShift: 0.92
+    - _ScanlineCount: 117
+    - _ScanlineIntensity: 0.107
+    - _ScanlineSpeed: 2
+    - _VignetteIntensity: 0.181
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}

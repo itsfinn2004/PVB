@@ -11,9 +11,9 @@ namespace FistFury.Rendering
         public RenderPassEvent RenderPassEvent =
             UnityEngine.Rendering.Universal.RenderPassEvent.AfterRenderingPostProcessing;
         public Material CRTMaterial = null;
-        [Range(0f, 0.3f)] public float Curvature = 0.1f;
         [Range(0f, 1f)] public float ScanlineIntensity = 0.5f;
         [Range(1f, 2000f)] public float ScanlineCount = 900f;
+        [Range(-10, 10)] public float ScanlineSpeed = 2.0f;
         [Range(0f, 5f)] public float RgbShift = 0.5f;
         [Range(0.5f, 1.5f)] public float Brightness = 1.2f;
         [Range(0.5f, 1.5f)] public float Contrast = 1.1f;

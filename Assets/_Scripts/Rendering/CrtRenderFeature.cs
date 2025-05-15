@@ -1,9 +1,8 @@
 // Made by Niek Melet on 15/5/2025
 
-using UnityEngine;
-using UnityEngine.Rendering.Universal;
+using FistFury.Rendering;
 
-namespace FistFury.Rendering
+namespace UnityEngine.Rendering.Universal
 {
     public class CrtRenderFeature : ScriptableRendererFeature
     {

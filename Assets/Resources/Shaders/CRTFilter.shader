@@ -8,6 +8,7 @@ Shader "FoF/CRTFilter"
         _Curvature ("Curvature", Range(0, 0.3)) = 0.1
         _ScanlineIntensity ("Scanline Intensity", Range(0, 1)) = 0.5
         _ScanlineCount ("Scanline Count", Range(1, 2000)) = 900
+    	_ScanlineSpeed("Scanline Speed", Range(-10, 10)) = 2.0
         _RGBShift ("RGB Shift", Range(0, 5)) = 0.5
         _Brightness ("Brightness", Range(0.5, 1.5)) = 1.2
         _Contrast ("Contrast", Range(0.5, 1.5)) = 1.1
@@ -50,12 +51,14 @@ Shader "FoF/CRTFilter"
             float _Curvature;
             float _ScanlineIntensity;
             float _ScanlineCount;
+            float _ScanlineSpeed;
             float _RGBShift;
             float _Brightness;
             float _Contrast;
             float _Flicker;
             float _VignetteIntensity;
             float _NoiseIntensity;
+            float _ScanlineTime;
             
             Varyings vert(Attributes input)
             {
@@ -100,12 +103,13 @@ Shader "FoF/CRTFilter"
                 col.b = SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, float2(curvedUV.x - shift, curvedUV.y)).b;
                 
                 // Scanlines
-                float scanline = sin(curvedUV.y * _ScanlineCount * 3.14159265359) * 0.5 + 0.5;
+                float scanline_y = curvedUV.y + (_ScanlineTime * _ScanlineSpeed * 0.01);
+                float scanline = sin(scanline_y * _ScanlineCount * 3.14159265359) * 0.5 + 0.5;
                 scanline = 1.0 - (_ScanlineIntensity * (1.0 - scanline));
                 col *= scanline;
                 
                 // flicker effect
-                float flicker = random(float2(_Time.y * 10, _Time.y * 10)) * 2.0 - 1.0;
+                float flicker = random(float2(_Time.x * 10, _Time.y * 10)) * 2.0 - 1.0;
                 flicker *= _Flicker;
                 col *= (1.0 + flicker);
                 
@@ -114,7 +118,7 @@ Shader "FoF/CRTFilter"
                 col *= _Brightness;
                 
                 // add noise
-                float noise = random(curvedUV * _Time.y);
+                float noise = random(curvedUV * _Time.x);
                 col += (noise - 0.5) * _NoiseIntensity;
                 
                 // add vignette
