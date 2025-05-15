@@ -44,6 +44,15 @@ public partial class @Playercotroller: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": ""Press(pressPoint=0.9)"",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""duck"",
+                    ""type"": ""Button"",
+                    ""id"": ""62283047-afa3-4390-86d0-012a3358eb66"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -105,7 +114,7 @@ public partial class @Playercotroller: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""6b74a2aa-82f4-4a0d-909a-fdef9fe6c229"",
-                    ""path"": ""<XInputController>/leftStick/left"",
+                    ""path"": ""<Gamepad>/leftStick/left"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -116,7 +125,7 @@ public partial class @Playercotroller: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""475cd968-92c7-496c-ab1a-7669f2930a0c"",
-                    ""path"": ""<XInputController>/leftStick/right"",
+                    ""path"": ""<Gamepad>/leftStick/right"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -137,8 +146,8 @@ public partial class @Playercotroller: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""negative"",
-                    ""id"": ""c6a88c0d-1037-4fbb-9ab7-5863d9b6894f"",
-                    ""path"": ""<XInputController>/leftStick/left"",
+                    ""id"": ""2eaad517-2b39-4832-99f5-1621cea19141"",
+                    ""path"": ""<Gamepad>/leftStick/left"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -148,8 +157,8 @@ public partial class @Playercotroller: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""positive"",
-                    ""id"": ""e0b1f85e-140d-49f8-a5cb-425cea48f210"",
-                    ""path"": ""<XInputController>/leftStick/right"",
+                    ""id"": ""220024d6-0a07-47f8-83ff-b678a196f726"",
+                    ""path"": ""<Gamepad>/leftStick/right"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -171,11 +180,33 @@ public partial class @Playercotroller: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""a14eb5a3-6734-4f67-9f3e-4ab4417cfc20"",
-                    ""path"": ""<XInputController>/leftStick/up"",
+                    ""path"": ""<Gamepad>/leftStick/up"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""vertical move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e3f6901d-989a-43e6-8aa2-d879c05c1d2d"",
+                    ""path"": ""<Gamepad>/leftStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""duck"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8062bda8-0a78-446b-9993-a1ce527fe000"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""duck"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -202,6 +233,15 @@ public partial class @Playercotroller: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": ""Press(pressPoint=0.9)"",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""duck"",
+                    ""type"": ""Button"",
+                    ""id"": ""32d9b8bc-2cd8-4fa7-9482-887c225d32ce"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -263,7 +303,7 @@ public partial class @Playercotroller: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""f7975cd0-6519-4560-97d7-1db751ad3fdf"",
-                    ""path"": ""<XInputController>/leftStick/left"",
+                    ""path"": ""<Gamepad>/leftStick/left"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -274,7 +314,7 @@ public partial class @Playercotroller: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""30e4061a-1aa2-471a-97a5-e54bf02a467e"",
-                    ""path"": ""<XInputController>/leftStick/right"",
+                    ""path"": ""<Gamepad>/leftStick/right"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -296,7 +336,7 @@ public partial class @Playercotroller: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""negative"",
                     ""id"": ""b85e074e-cd53-4d5a-9c71-3cb781f37dc6"",
-                    ""path"": ""<XInputController>/leftStick/left"",
+                    ""path"": ""<Gamepad>/leftStick/left"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -307,7 +347,7 @@ public partial class @Playercotroller: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""positive"",
                     ""id"": ""3d498a83-09c3-4cee-8a3c-36ce71de7f9c"",
-                    ""path"": ""<XInputController>/leftStick/right"",
+                    ""path"": ""<Gamepad>/leftStick/right"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -329,11 +369,33 @@ public partial class @Playercotroller: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""94f26c4f-6b89-4bcb-b6d6-efd2f438b147"",
-                    ""path"": ""<XInputController>/leftStick/up"",
+                    ""path"": ""<Gamepad>/leftStick/up"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""vertical move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1f224005-0926-4b20-a262-b324ef45b39f"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""duck"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9e2b53b9-d1be-4d71-93cc-fd7d848b356b"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""duck"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -346,10 +408,12 @@ public partial class @Playercotroller: IInputActionCollection2, IDisposable
         m_Player1 = asset.FindActionMap("Player1", throwIfNotFound: true);
         m_Player1_horizontalmove = m_Player1.FindAction("horizontal move", throwIfNotFound: true);
         m_Player1_verticalmove = m_Player1.FindAction("vertical move", throwIfNotFound: true);
+        m_Player1_duck = m_Player1.FindAction("duck", throwIfNotFound: true);
         // Player2
         m_Player2 = asset.FindActionMap("Player2", throwIfNotFound: true);
         m_Player2_horizontalmove = m_Player2.FindAction("horizontal move", throwIfNotFound: true);
         m_Player2_verticalmove = m_Player2.FindAction("vertical move", throwIfNotFound: true);
+        m_Player2_duck = m_Player2.FindAction("duck", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -413,12 +477,14 @@ public partial class @Playercotroller: IInputActionCollection2, IDisposable
     private List<IPlayer1Actions> m_Player1ActionsCallbackInterfaces = new List<IPlayer1Actions>();
     private readonly InputAction m_Player1_horizontalmove;
     private readonly InputAction m_Player1_verticalmove;
+    private readonly InputAction m_Player1_duck;
     public struct Player1Actions
     {
         private @Playercotroller m_Wrapper;
         public Player1Actions(@Playercotroller wrapper) { m_Wrapper = wrapper; }
         public InputAction @horizontalmove => m_Wrapper.m_Player1_horizontalmove;
         public InputAction @verticalmove => m_Wrapper.m_Player1_verticalmove;
+        public InputAction @duck => m_Wrapper.m_Player1_duck;
         public InputActionMap Get() { return m_Wrapper.m_Player1; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -434,6 +500,9 @@ public partial class @Playercotroller: IInputActionCollection2, IDisposable
             @verticalmove.started += instance.OnVerticalmove;
             @verticalmove.performed += instance.OnVerticalmove;
             @verticalmove.canceled += instance.OnVerticalmove;
+            @duck.started += instance.OnDuck;
+            @duck.performed += instance.OnDuck;
+            @duck.canceled += instance.OnDuck;
         }
 
         private void UnregisterCallbacks(IPlayer1Actions instance)
@@ -444,6 +513,9 @@ public partial class @Playercotroller: IInputActionCollection2, IDisposable
             @verticalmove.started -= instance.OnVerticalmove;
             @verticalmove.performed -= instance.OnVerticalmove;
             @verticalmove.canceled -= instance.OnVerticalmove;
+            @duck.started -= instance.OnDuck;
+            @duck.performed -= instance.OnDuck;
+            @duck.canceled -= instance.OnDuck;
         }
 
         public void RemoveCallbacks(IPlayer1Actions instance)
@@ -467,12 +539,14 @@ public partial class @Playercotroller: IInputActionCollection2, IDisposable
     private List<IPlayer2Actions> m_Player2ActionsCallbackInterfaces = new List<IPlayer2Actions>();
     private readonly InputAction m_Player2_horizontalmove;
     private readonly InputAction m_Player2_verticalmove;
+    private readonly InputAction m_Player2_duck;
     public struct Player2Actions
     {
         private @Playercotroller m_Wrapper;
         public Player2Actions(@Playercotroller wrapper) { m_Wrapper = wrapper; }
         public InputAction @horizontalmove => m_Wrapper.m_Player2_horizontalmove;
         public InputAction @verticalmove => m_Wrapper.m_Player2_verticalmove;
+        public InputAction @duck => m_Wrapper.m_Player2_duck;
         public InputActionMap Get() { return m_Wrapper.m_Player2; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -488,6 +562,9 @@ public partial class @Playercotroller: IInputActionCollection2, IDisposable
             @verticalmove.started += instance.OnVerticalmove;
             @verticalmove.performed += instance.OnVerticalmove;
             @verticalmove.canceled += instance.OnVerticalmove;
+            @duck.started += instance.OnDuck;
+            @duck.performed += instance.OnDuck;
+            @duck.canceled += instance.OnDuck;
         }
 
         private void UnregisterCallbacks(IPlayer2Actions instance)
@@ -498,6 +575,9 @@ public partial class @Playercotroller: IInputActionCollection2, IDisposable
             @verticalmove.started -= instance.OnVerticalmove;
             @verticalmove.performed -= instance.OnVerticalmove;
             @verticalmove.canceled -= instance.OnVerticalmove;
+            @duck.started -= instance.OnDuck;
+            @duck.performed -= instance.OnDuck;
+            @duck.canceled -= instance.OnDuck;
         }
 
         public void RemoveCallbacks(IPlayer2Actions instance)
@@ -519,10 +599,12 @@ public partial class @Playercotroller: IInputActionCollection2, IDisposable
     {
         void OnHorizontalmove(InputAction.CallbackContext context);
         void OnVerticalmove(InputAction.CallbackContext context);
+        void OnDuck(InputAction.CallbackContext context);
     }
     public interface IPlayer2Actions
     {
         void OnHorizontalmove(InputAction.CallbackContext context);
         void OnVerticalmove(InputAction.CallbackContext context);
+        void OnDuck(InputAction.CallbackContext context);
     }
 }

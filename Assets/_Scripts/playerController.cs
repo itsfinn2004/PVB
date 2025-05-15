@@ -24,16 +24,27 @@ namespace FistFury
             movement = new Vector2(input, 0f);
         }
 
-        public void onVerticalMove(InputAction.CallbackContext context)
+        public void onJump(InputAction.CallbackContext context)
         {
             Debug.Log("spring test");
-            if(context.performed && isGrounded)
+            if (context.performed && isGrounded)
             {
                 rb.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
                 isGrounded = false;
 
             }
         }
+
+        public void onDuck(InputAction.CallbackContext context)
+        {
+            
+        }
+
+        public void onAttack(InputAction.CallbackContext context)
+        {
+
+        }
+
 
 
         private void OnCollisionEnter2D(Collision2D collision)

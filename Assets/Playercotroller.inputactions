@@ -22,6 +22,15 @@
                     "processors": "",
                     "interactions": "Press(pressPoint=0.9)",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "duck",
+                    "type": "Button",
+                    "id": "62283047-afa3-4390-86d0-012a3358eb66",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -83,7 +92,7 @@
                 {
                     "name": "",
                     "id": "6b74a2aa-82f4-4a0d-909a-fdef9fe6c229",
-                    "path": "<XInputController>/leftStick/left",
+                    "path": "<Gamepad>/leftStick/left",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -94,7 +103,7 @@
                 {
                     "name": "",
                     "id": "475cd968-92c7-496c-ab1a-7669f2930a0c",
-                    "path": "<XInputController>/leftStick/right",
+                    "path": "<Gamepad>/leftStick/right",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -115,8 +124,8 @@
                 },
                 {
                     "name": "negative",
-                    "id": "c6a88c0d-1037-4fbb-9ab7-5863d9b6894f",
-                    "path": "<XInputController>/leftStick/left",
+                    "id": "2eaad517-2b39-4832-99f5-1621cea19141",
+                    "path": "<Gamepad>/leftStick/left",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -126,8 +135,8 @@
                 },
                 {
                     "name": "positive",
-                    "id": "e0b1f85e-140d-49f8-a5cb-425cea48f210",
-                    "path": "<XInputController>/leftStick/right",
+                    "id": "220024d6-0a07-47f8-83ff-b678a196f726",
+                    "path": "<Gamepad>/leftStick/right",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -149,11 +158,33 @@
                 {
                     "name": "",
                     "id": "a14eb5a3-6734-4f67-9f3e-4ab4417cfc20",
-                    "path": "<XInputController>/leftStick/up",
+                    "path": "<Gamepad>/leftStick/up",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "vertical move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e3f6901d-989a-43e6-8aa2-d879c05c1d2d",
+                    "path": "<Gamepad>/leftStick/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "duck",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8062bda8-0a78-446b-9993-a1ce527fe000",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "duck",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -180,6 +211,15 @@
                     "processors": "",
                     "interactions": "Press(pressPoint=0.9)",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "duck",
+                    "type": "Button",
+                    "id": "32d9b8bc-2cd8-4fa7-9482-887c225d32ce",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -241,7 +281,7 @@
                 {
                     "name": "",
                     "id": "f7975cd0-6519-4560-97d7-1db751ad3fdf",
-                    "path": "<XInputController>/leftStick/left",
+                    "path": "<Gamepad>/leftStick/left",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -252,7 +292,7 @@
                 {
                     "name": "",
                     "id": "30e4061a-1aa2-471a-97a5-e54bf02a467e",
-                    "path": "<XInputController>/leftStick/right",
+                    "path": "<Gamepad>/leftStick/right",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -274,7 +314,7 @@
                 {
                     "name": "negative",
                     "id": "b85e074e-cd53-4d5a-9c71-3cb781f37dc6",
-                    "path": "<XInputController>/leftStick/left",
+                    "path": "<Gamepad>/leftStick/left",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -285,7 +325,7 @@
                 {
                     "name": "positive",
                     "id": "3d498a83-09c3-4cee-8a3c-36ce71de7f9c",
-                    "path": "<XInputController>/leftStick/right",
+                    "path": "<Gamepad>/leftStick/right",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -307,11 +347,33 @@
                 {
                     "name": "",
                     "id": "94f26c4f-6b89-4bcb-b6d6-efd2f438b147",
-                    "path": "<XInputController>/leftStick/up",
+                    "path": "<Gamepad>/leftStick/up",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "vertical move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1f224005-0926-4b20-a262-b324ef45b39f",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "duck",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9e2b53b9-d1be-4d71-93cc-fd7d848b356b",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "duck",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
