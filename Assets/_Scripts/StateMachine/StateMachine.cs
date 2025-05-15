@@ -1,5 +1,6 @@
 // Made by Niek Melet on 15/5/2025
 
+using FistFury.Entities;
 using UnityEngine;
 
 namespace FistFury.StateMachine
@@ -9,9 +10,11 @@ namespace FistFury.StateMachine
         public State ActiveState { get; private set; }
         public State ActiveChildState { get; private set; }
 
-        public void Initialize()
+        private Core _core;
+
+        public void Initialize(Core core)
         {
-            Debug.Log("Initialized StateMachine!");
+            _core = core;
         }
 
         /// <summary>
@@ -23,6 +26,7 @@ namespace FistFury.StateMachine
             ActiveState?.Exit();
             ActiveState = newState;
 
+            ActiveState?.Initialize(_core);
             ActiveState?.Enter();
         }
 
@@ -35,6 +39,7 @@ namespace FistFury.StateMachine
             ActiveChildState?.Exit();
             ActiveChildState = newState;
 
+            ActiveChildState?.Initialize(_core);
             ActiveChildState?.Enter();
         }
     }
