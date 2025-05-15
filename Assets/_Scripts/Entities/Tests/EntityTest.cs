@@ -1,8 +1,9 @@
 // Made by Niek Melet on 15/5/2025
 
-using FistFury.StateMachine.States;
 using UnityEngine;
-using State = FistFury.StateMachine.State;
+
+using FistFury.StateMachine;
+using FistFury.StateMachine.States;
 
 namespace FistFury.Entities.Tests
 {
@@ -42,9 +43,9 @@ namespace FistFury.Entities.Tests
             State oldState = StateMachine.CurrentState;
             State newState;
 
-            if (Input.GetKey(KeyCode.A))
+            if (UnityEngine.Input.GetKey(KeyCode.A))
                 newState = move;
-            else if (Input.GetKey(KeyCode.Space))
+            else if (UnityEngine.Input.GetKey(KeyCode.Space))
                 newState = jump;
             else
                 newState = idle;
