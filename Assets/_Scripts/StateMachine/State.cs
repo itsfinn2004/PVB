@@ -7,14 +7,39 @@ namespace FistFury.StateMachine
 {
     public abstract class State : MonoBehaviour, IState
     {
-        protected Core Core;
+        public bool IsComplete { get; protected set; }
+
+        // keep track of how long this state is active
+        protected float StartTime;
+        protected float RunTime => Time.time - StartTime;
+
+        // blackboard
+        [field: SerializeField] protected Core Core { get; private set; }
         protected Animator Animator => Core.Animator;
         protected Rigidbody2D Body => Core.Body;
 
-        public void Initialize(Core core)
+        public StateMachine ChildStateMachine { get; private set; }
+        protected StateMachine ParentStateMachine { get; private set; }
+        public State ActiveState => ChildStateMachine.CurrentState;
+
+        public void Initialise(StateMachine parent)
+        {
+            ParentStateMachine = parent;
+            IsComplete = false;
+            StartTime = Time.time;
+        }
+
+        protected void Set(State newState, bool forceReset = false)
+        {
+            ChildStateMachine.Set(newState, forceReset);
+        }
+
+        public void SetCore(Core core)
         {
             Core = core;
         }
+
+        #region State Methods
 
         public virtual void Enter()
         {
@@ -32,13 +57,20 @@ namespace FistFury.StateMachine
         public virtual void FixedDo()
         { }
 
+        // calls to get down to the children
         public virtual void DoBranch()
-        { }
+        {
+            Do();
+            ActiveState?.DoBranch();
+        }
 
-        public virtual void FixedDoBranch()
-        { }
+        public void FixedDoBranch()
+        {
+            FixedDo();
+            ActiveState?.FixedDo();
+        }
 
-        public virtual void OnAnimatorEnter()
+        public void OnAnimatorEnter()
         { }
 
         public virtual void OnAnimatorEvent()
@@ -46,5 +78,8 @@ namespace FistFury.StateMachine
 
         public virtual void OnAnimatorExit()
         { }
+
+        #endregion
+
     }
 }

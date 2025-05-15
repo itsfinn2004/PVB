@@ -1,46 +1,37 @@
 // Made by Niek Melet on 15/5/2025
 
-using UnityEngine;
+using System.Collections.Generic;
 using FistFury.Entities;
 
 namespace FistFury.StateMachine
 {
     public class StateMachine
     {
-        public State ActiveState { get; private set; }
-        public State ActiveChildState { get; private set; }
+        public State CurrentState { get; private set; }
 
-        private Core _core;
-
-        public void Initialize(Core core)
+        public void Set(State newState, bool forceReset = false)
         {
-            _core = core;
+            if (CurrentState != newState || forceReset)
+            {
+                CurrentState?.Exit();
+                CurrentState = newState;
+                CurrentState.Initialise(this);
+                CurrentState.Enter();
+            }
         }
 
-        /// <summary>
-        /// Changes the active state to a new state.
-        /// </summary>
-        /// <param name="newState">The new state to change into.</param>
-        public void ChangeState(State newState)
+        public List<State> GetActiveStates(List<State> list = null)
         {
-            ActiveState?.Exit();
-            ActiveState = newState;
+            // initialize list if null
+            list ??= new List<State>();
 
-            ActiveState?.Initialize(_core);
-            ActiveState?.Enter();
-        }
+            // return list if there's no active state
+            if (!CurrentState)
+                return list;
 
-        /// <summary>
-        /// Changes the active child state to a new state.
-        /// </summary>
-        /// <param name="newState">The new state to change the child state into.</param>
-        public void ChangeChildState(State newState)
-        {
-            ActiveChildState?.Exit();
-            ActiveChildState = newState;
-
-            ActiveChildState?.Initialize(_core);
-            ActiveChildState?.Enter();
+            // add the current state
+            list.Add(CurrentState);
+            return CurrentState.ChildStateMachine.GetActiveStates(list);
         }
     }
 }

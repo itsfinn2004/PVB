@@ -1,18 +1,18 @@
 // Made by Niek Melet on 15/5/2025
 
 using FistFury.StateMachine.States;
+using Unity.VisualScripting;
 using UnityEngine;
+using State = FistFury.StateMachine.State;
 
 namespace FistFury.Entities.Tests
 {
     public class EntityTest : Core
     {
-        private StateMachine.StateMachine _stateMachine;
-
         [Header("Behaviors")]
         [SerializeField] private Idle idle;
 
-        [Header("Movement")]
+        [Space()]
         [SerializeField] private Move move;
         [SerializeField] private Jump jump;
 
@@ -29,8 +29,30 @@ namespace FistFury.Entities.Tests
 
         private void Start()
         {
-            _stateMachine = new StateMachine.StateMachine();
-            _stateMachine.Initialize(this);
+            SetupInstances();
+            StateMachine.Set(idle);
+        }
+
+        private void Update()
+        {
+            SelectState();
+        }
+
+        private void SelectState()
+        {
+            State oldState = StateMachine.CurrentState;
+            State newState;
+
+            if (Input.GetKey(KeyCode.A))
+                newState = move;
+            else if (Input.GetKey(KeyCode.Space))
+                newState = jump;
+            else
+                newState = idle;
+
+            // only change if the new state is different
+            if (newState && newState != oldState)
+                StateMachine.Set(newState);
         }
     }
 }

@@ -1,6 +1,10 @@
 // Made by Niek Melet on 15/5/2025
 
+using System.Collections.Generic;
+
 using UnityEngine;
+
+using FistFury.StateMachine;
 
 namespace FistFury.Entities
 {
@@ -13,6 +17,30 @@ namespace FistFury.Entities
         [field: SerializeField] public Animator Animator { get; private set; }
         [field: SerializeField] public Rigidbody2D Body { get; private set; }
 
-        // TODO: Add more fields, e.g. GroundCheck
+        protected StateMachine.StateMachine StateMachine;
+        protected State CurrentState => StateMachine.CurrentState;
+
+        protected void SetupInstances()
+        {
+            StateMachine = new StateMachine.StateMachine();
+
+            // Gather all states and set their core
+            State[] allChildStates = GetComponentsInChildren<State>();
+            foreach (State state in allChildStates)
+                state.SetCore(this);
+        }
+
+#if UNITY_EDITOR
+
+        private void OnDrawGizmos()
+        {
+            if (Application.isPlaying && CurrentState)
+            {
+                List<State> states = StateMachine.GetActiveStates();
+                UnityEditor.Handles.Label(transform.position, "Active States: " + string.Join(" > ", states));
+            }
+        }
+
+#endif
     }
 }
