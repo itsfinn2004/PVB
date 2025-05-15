@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Users;
 
 namespace FistFury
+    // deze script is gemaakt door finn streunding
 {
     public class playerSpawner : MonoBehaviour
     {
