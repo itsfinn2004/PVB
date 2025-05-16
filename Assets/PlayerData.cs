@@ -48,13 +48,15 @@ namespace FistFury
 
         public void TakeDamage(int damage)
         {
-       //     Healthslider.value = health;
+            health = -damage;
+           Healthslider.value = health;
+            if(health <= 0)
+            {
+                //you lost git gud hier komt de code blok die jou een leven weg haalt
+            }
         }
 
-        public void GiveDamage(int damage)
-        {
-
-        }
+        
     }
 }
 
