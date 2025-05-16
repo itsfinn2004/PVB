@@ -33,10 +33,13 @@ namespace FistFury.Rendering
         [Range(0f, 1f)] public float VignetteIntensity = 0.3f;
         [Range(0f, 0.5f)] public float NoiseIntensity = 0.05f;
 
-        [Header("VSYNC Issues")]
+        [Header("Vsync Issues")]
         [Range(0.001f, 0.1f)] public float VSyncLineWidth = 0.03f;
         [Range(-3f, 3f)] public float VSyncLineSpeed = 0.8f;
-        [Range(0f, 0.1f)] public float VSyncDistortion = 0.04f;
+        [Range(0f, 0.01f)] public float VSyncDistortion = 0.005f;
         [Range(0f, 1f)] public float VSyncFrequency = 0.5f;
+        [Range(0f, 1f)] public float VSyncRandomness = 0.7f;
+        [Range(0f, 1f)] public float VSyncJitter = 0.3f;
+        [Range(0f, 1f)] public float VSyncDoubleLineChance = 0.3f;
     }
 }

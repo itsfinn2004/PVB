@@ -29,6 +29,9 @@ namespace FistFury.Rendering
         private static readonly int VSyncLineSpeed = Shader.PropertyToID("_VSyncLineSpeed");
         private static readonly int VSyncDistortion = Shader.PropertyToID("_VSyncDistortion");
         private static readonly int VSyncFrequency = Shader.PropertyToID("_VSyncFrequency");
+        private static readonly int VSyncRandomness = Shader.PropertyToID("_VSyncRandomness");
+        private static readonly int VSyncJitter = Shader.PropertyToID("_VSyncJitter");
+        private static readonly int VSyncDoubleLineChance = Shader.PropertyToID("_VSyncDoubleLineChance");
 
         private Material _crtMaterial;
         private RenderTargetIdentifier _source;
@@ -81,6 +84,9 @@ namespace FistFury.Rendering
             _crtMaterial.SetFloat(VSyncLineSpeed, _settings.VSyncLineSpeed);
             _crtMaterial.SetFloat(VSyncDistortion, _settings.VSyncDistortion);
             _crtMaterial.SetFloat(VSyncFrequency, _settings.VSyncFrequency);
+            _crtMaterial.SetFloat(VSyncRandomness, _settings.VSyncRandomness);
+            _crtMaterial.SetFloat(VSyncJitter, _settings.VSyncJitter);
+            _crtMaterial.SetFloat(VSyncDoubleLineChance, _settings.VSyncDoubleLineChance);
 
             RenderTextureDescriptor descriptor = renderingData.cameraData.cameraTargetDescriptor;
             cmd.GetTemporaryRT(_tempRenderTarget.id, descriptor);

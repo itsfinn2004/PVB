@@ -21,8 +21,11 @@ Shader "FoF/CRTFilter"
     	[Header(Vsync Issues)]
     	_VSyncLineWidth ("VSYnc Line Width", Range(0.001, 0.1)) = 0.03
     	_VSyncLineSpeed ("VSync Line Speed", Range(-3, 3)) = 0.8
-    	_VSyncDistortion ("VSync Distortion Amount", Range(0, 0.1)) = 0.04
+    	_VSyncDistortion ("VSync Distortion Amount", Range(0, 0.01)) = 0.005
     	_VSyncFrequency ("VSync Frequency", Range(0, 1)) = 0.5
+    	_VSyncRandomness ("VSYNC Randomness", Range(0, 1)) = 0.7
+        _VSyncJitter ("VSYNC Jitter", Range(0, 1)) = 0.3
+        _VSyncDoubleLineChance ("Double Line Chance", Range(0, 1)) = 0.3
     }
     SubShader
     {
@@ -69,10 +72,14 @@ Shader "FoF/CRTFilter"
             float _VignetteIntensity;
             float _NoiseIntensity;
             float _ScanlineTime;
+
             float _VSyncLineWidth;
             float _VSyncLineSpeed;
             float _VSyncDistortion;
             float _VSyncFrequency;
+            float _VSyncRandomness;
+            float _VSyncJitter;
+            float _VSyncDoubleLineChance;
             
             Varyings vert(Attributes input)
             {
@@ -127,23 +134,57 @@ Shader "FoF/CRTFilter"
                     return half4(0.0, 0.0, 0.0, 1.0);
                 }
 
-                // vsync issue implementation
+                // VSYNC issue implementation
                 float2 vsyncUV = projectedUV;
-
-                float vsyncLinePos = frac(_ScanlineTime * _VSyncLineSpeed);
-                float vsyncLine = smoothstep(0, _VSyncLineWidth, 1 - abs(vsyncUV.y - vsyncLinePos) / _VSyncLineWidth);
-                float vsyncTrigger = step(1 - _VSyncFrequency, frac(_ScanlineTime * 0.5));
-                vsyncLine *= vsyncTrigger;
-
-                // apply horizontal distortion
-                float distortionAmount = vsyncLine * _VSyncDistortion;
-                float distortionOffset = sin(vsyncUV.y * 100.0 + _ScanlineTime * 10.0) * distortionAmount;
-
-                // apply distortion to uv
-                vsyncUV.x += distortionOffset;
-
-                // use distorted uvs
-                projectedUV = lerp(projectedUV, vsyncUV, vsyncLine * 0.8);
+                
+                // More random time variations
+                float randTime = _ScanlineTime + sin(_ScanlineTime * 0.7) * _VSyncRandomness;
+                
+                // Calculate base VSYNC line position with added jitter
+                float jitter = (sin(_ScanlineTime * 32.457) * 0.5 + 0.5) * _VSyncJitter * 0.05;
+                float vsyncLinePos = frac(randTime * _VSyncLineSpeed) + jitter;
+                
+                // Potentially add a second line if we hit the random chance
+                float randomDouble = step(1.0 - _VSyncDoubleLineChance, frac(sin(randTime * 45.32) * 43758.5453));
+                float secondLinePos = frac(vsyncLinePos + 0.2);
+                
+                // Determine if the current pixel is within the VSYNC line(s)
+                float vsyncLine = smoothstep(0, _VSyncLineWidth * (1.0 + sin(randTime * 13.0) * 0.3), 
+                                   1 - abs(vsyncUV.y - vsyncLinePos) / _VSyncLineWidth);
+                
+                // Add the second line if randomDouble is 1
+                float secondLine = randomDouble * smoothstep(0, _VSyncLineWidth * 0.8, 
+                                   1 - abs(vsyncUV.y - secondLinePos) / (_VSyncLineWidth * 0.8));
+                vsyncLine = max(vsyncLine, secondLine);
+                
+                // Make the VSYNC effect appear randomly based on frequency and add some randomness
+                float randomTrigger = step(1.0 - _VSyncFrequency * (0.8 + sin(randTime * 0.3) * 0.2), 
+                                     frac(sin(floor(randTime * 0.5) * 78.233) * 43758.5453));
+                
+                vsyncLine *= randomTrigger;
+                
+                // Create more complex distortion pattern
+                float distortionOffset = 0;
+                if (vsyncLine > 0.01) {
+                    // Base wave distortion
+                    float baseWave = sin(vsyncUV.y * 100.0 + randTime * 10.0) * _VSyncDistortion;
+                    
+                    // Add secondary noise pattern
+                    float noisePattern = random(float2(vsyncUV.y * 40.0, randTime)) * 2.0 - 1.0;
+                    
+                    // Combine with varying intensity
+                    distortionOffset = baseWave + noisePattern * _VSyncDistortion * 0.7;
+                    
+                    // Add occasional stronger glitch
+                    float glitchChance = step(0.95, random(float2(floor(randTime * 2.0), 0.5)));
+                    distortionOffset *= 1.0 + glitchChance * 2.0;
+                }
+                
+                // Apply the distortion with intensity based on position within the line
+                vsyncUV.x += distortionOffset * vsyncLine;
+                
+                // Use the distorted UVs proportional to vsyncLine strength
+                projectedUV = lerp(projectedUV, vsyncUV, vsyncLine * 0.95);
 
                 // RGB shifting for color delay
                 float shift = _RGBShift * 0.001;
@@ -153,7 +194,7 @@ Shader "FoF/CRTFilter"
                 col.g = SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, projectedUV).g;
                 col.b = SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, float2(projectedUV.x - shift, projectedUV.y)).b;
                 
-                // Scanlines met beweging
+                // Scanlines with movement
                 float scanlineY = projectedUV.y + (_ScanlineTime * _ScanlineSpeed * 0.01);
                 float scanline = sin(scanlineY * _ScanlineCount * 3.14159265359) * 0.5 + 0.5;
                 scanline = 1.0 - (_ScanlineIntensity * (1.0 - scanline));
