@@ -1,4 +1,4 @@
-// Made by Niek Melet on 15/5/2025 (aangepast met panini projectie)
+// Made by Niek Melet on 15/5/2025
 
 Shader "FoF/CRTFilter"
 {
@@ -6,8 +6,8 @@ Shader "FoF/CRTFilter"
     {
         _MainTex ("Texture", 2D) = "white" {}
         _Curvature ("Curvature", Range(0, 0.3)) = 0.1
-        _PaniniDistance ("Panini Distance", Range(0, 1)) = 0.3 // Parameter voor panini projectie
-        _PaniniCropToFit ("Panini Crop To Fit", Range(0, 1)) = 0.5 // Bijsnijden naar scherm
+        _PaniniDistance ("Panini Distance", Range(0, 1)) = 0.3
+        _PaniniCropToFit ("Panini Crop To Fit", Range(0, 1)) = 0.5
         _ScanlineIntensity ("Scanline Intensity", Range(0, 1)) = 0.5
         _ScanlineCount ("Scanline Count", Range(1, 2000)) = 900
         _ScanlineSpeed ("Scanline Speed", Range(-10, 10)) = 2.0
@@ -17,6 +17,12 @@ Shader "FoF/CRTFilter"
         _Flicker ("Flicker", Range(0, 0.1)) = 0.03
         _VignetteIntensity ("Vignette Intensity", Range(0, 1)) = 0.3
         _NoiseIntensity ("Noise Intensity", Range(0, 0.5)) = 0.05
+    	
+    	[Header(Vsync Issues)]
+    	_VSyncLineWidth ("VSYnc Line Width", Range(0.001, 0.1)) = 0.03
+    	_VSyncLineSpeed ("VSync Line Speed", Range(-3, 3)) = 0.8
+    	_VSyncDistortion ("VSync Distortion Amount", Range(0, 0.1)) = 0.04
+    	_VSyncFrequency ("VSync Frequency", Range(0, 1)) = 0.5
     }
     SubShader
     {
@@ -63,6 +69,10 @@ Shader "FoF/CRTFilter"
             float _VignetteIntensity;
             float _NoiseIntensity;
             float _ScanlineTime;
+            float _VSyncLineWidth;
+            float _VSyncLineSpeed;
+            float _VSyncDistortion;
+            float _VSyncFrequency;
             
             Varyings vert(Attributes input)
             {
@@ -116,7 +126,25 @@ Shader "FoF/CRTFilter"
                 {
                     return half4(0.0, 0.0, 0.0, 1.0);
                 }
-                
+
+                // vsync issue implementation
+                float2 vsyncUV = projectedUV;
+
+                float vsyncLinePos = frac(_ScanlineTime * _VSyncLineSpeed);
+                float vsyncLine = smoothstep(0, _VSyncLineWidth, 1 - abs(vsyncUV.y - vsyncLinePos) / _VSyncLineWidth);
+                float vsyncTrigger = step(1 - _VSyncFrequency, frac(_ScanlineTime * 0.5));
+                vsyncLine *= vsyncTrigger;
+
+                // apply horizontal distortion
+                float distortionAmount = vsyncLine * _VSyncDistortion;
+                float distortionOffset = sin(vsyncUV.y * 100.0 + _ScanlineTime * 10.0) * distortionAmount;
+
+                // apply distortion to uv
+                vsyncUV.x += distortionOffset;
+
+                // use distorted uvs
+                projectedUV = lerp(projectedUV, vsyncUV, vsyncLine * 0.8);
+
                 // RGB shifting for color delay
                 float shift = _RGBShift * 0.001;
                 
@@ -148,6 +176,9 @@ Shader "FoF/CRTFilter"
                 float2 vignetteUV = projectedUV * 2.0 - 1.0;
                 float vignette = 1.0 - dot(vignetteUV, vignetteUV) * _VignetteIntensity;
                 col *= vignette;
+
+                // enhance vsync line by increasing brightness along it
+                col += vsyncLine * 0.05;
                 
                 return half4(col, 1.0);
             }
