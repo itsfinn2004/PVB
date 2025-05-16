@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Active: 1
   Settings:
-    IsEnabled: 1
+    IsEnabled: 0
     RenderPassEvent: 550
     CRTMaterial: {fileID: 2100000, guid: 26bcb09571aeac645b47c3d414866d77, type: 2}
     Curvature: 0.2042
