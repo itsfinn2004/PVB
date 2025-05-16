@@ -48,8 +48,8 @@ Material:
     - _PaniniCropToFit: 0.6
     - _PaniniDistance: 0.495
     - _RGBShift: 1.3
-    - _ScanlineCount: 54
-    - _ScanlineIntensity: 0.11
+    - _ScanlineCount: 65
+    - _ScanlineIntensity: 0.197
     - _ScanlineSpeed: 2.81
     - _VignetteIntensity: 0.214
     m_Colors:
