@@ -195,7 +195,7 @@ MonoBehaviour:
     m_ActionId: 32d9b8bc-2cd8-4fa7-9482-887c225d32ce
     m_ActionName: Player2/duck[/Keyboard/downArrow,/Keyboard/s]
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
+  m_DefaultControlScheme: KeyboardMouse
   m_DefaultActionMap: Player1
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}

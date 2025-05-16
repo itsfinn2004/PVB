@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -16,13 +16,11 @@ namespace FistFury
 
         void Start()
         {
-            foreach (var device in Gamepad.all)
-            {
-                SpawnPlayer(device);
-            }
+            SpawnPlayer("Player1Keyboard");
+            SpawnPlayer("Player2Keyboard");
         }
 
-        public void SpawnPlayer(InputDevice device)
+        public void SpawnPlayer(string controlScheme)
         {
             if (playerCount >= spawnPoints.Length)
             {
@@ -33,10 +31,15 @@ namespace FistFury
             var prefab = playerPrefabs[playerCount];
             var spawnPoint = spawnPoints[playerCount].position;
 
-            PlayerInput playerInput = PlayerInput.Instantiate(prefab, playerCount, null, -1 , device);
+            var playerInput = PlayerInput.Instantiate(
+                prefab,
+                playerCount,
+                controlScheme: controlScheme,
+                splitScreenIndex: -1,
+                pairWithDevice: null
+            );
 
             playerInput.transform.position = spawnPoint;
-
             playerCount++;
         }
     }

@@ -145,7 +145,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5887564}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 4.92, y: -2.85, z: 0.030578366}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -412,7 +412,7 @@ MonoBehaviour:
   m_NotificationBehavior: 0
   m_MaxPlayerCount: -1
   m_AllowJoining: 1
-  m_JoinBehavior: 0
+  m_JoinBehavior: 2
   m_PlayerJoinedEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -422,7 +422,7 @@ MonoBehaviour:
   m_JoinAction:
     m_UseReference: 0
     m_Action:
-      m_Name: 
+      m_Name: Join
       m_Type: 0
       m_ExpectedControlType: 
       m_Id: 40d99b80-d2be-46db-bcaf-2d9b3d674038
@@ -471,3 +471,6 @@ MonoBehaviour:
   spawnPoints:
   - {fileID: 393758524}
   - {fileID: 5887565}
+  playerPrefabs:
+  - {fileID: 4219867603245107073, guid: 45497393e35a9cb459807f89a3f8e8ec, type: 3}
+  - {fileID: 5899796796311927693, guid: 62af194ca0a575a4cb0af0d997b83964, type: 3}
