@@ -10,23 +10,27 @@ namespace FistFury
     public class playerSpawner : MonoBehaviour
     {
         public Transform[] spawnPoints;
-        public GameObject[] playerPrefabs; 
+        public GameObject[] playerPrefabs;
 
         private int playerCount = 0;
 
+
         void Start()
         {
-            SpawnPlayer("Player1Keyboard");
-            SpawnPlayer("Player2Keyboard");
+            // Example setup: spawn 2 players
+            SpawnPlayer("Player1Scheme", Keyboard.current);         
+            SpawnPlayer("Player2Scheme", Keyboard.current);         
+
+            if (Gamepad.all.Count >= 1)
+                PlayerInput.all[0].SwitchCurrentControlScheme(Gamepad.all[0]);
+
+            if (Gamepad.all.Count >= 2)
+                PlayerInput.all[1].SwitchCurrentControlScheme(Gamepad.all[1]);
         }
 
-        public void SpawnPlayer(string controlScheme)
+        public void SpawnPlayer(string controlScheme, InputDevice device)
         {
-            if (playerCount >= spawnPoints.Length)
-            {
-                Debug.LogWarning("Too many players!");
-                return;
-            }
+            if (playerCount >= spawnPoints.Length) return;
 
             var prefab = playerPrefabs[playerCount];
             var spawnPoint = spawnPoints[playerCount].position;
@@ -34,9 +38,9 @@ namespace FistFury
             var playerInput = PlayerInput.Instantiate(
                 prefab,
                 playerCount,
-                controlScheme: controlScheme,
+                controlScheme,
                 splitScreenIndex: -1,
-                pairWithDevice: null
+                pairWithDevice: device
             );
 
             playerInput.transform.position = spawnPoint;
