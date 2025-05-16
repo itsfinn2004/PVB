@@ -40,7 +40,7 @@
                     "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
-                    "groups": "KeyboardMousePlayer1",
+                    "groups": "Player1Scheme",
                     "action": "horizontal move",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -51,7 +51,7 @@
                     "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
-                    "groups": "KeyboardMousePlayer1",
+                    "groups": "Player1Scheme",
                     "action": "horizontal move",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -73,7 +73,7 @@
                     "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Player1Scheme",
                     "action": "horizontal move",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -84,7 +84,7 @@
                     "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Player1Scheme",
                     "action": "horizontal move",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -95,7 +95,7 @@
                     "path": "<Gamepad>/leftStick/left",
                     "interactions": "",
                     "processors": "",
-                    "groups": "KeyboardMousePlayer1;KeyboardMousePlayer2",
+                    "groups": "Controller;Player1Scheme",
                     "action": "horizontal move",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -106,7 +106,7 @@
                     "path": "<Gamepad>/leftStick/right",
                     "interactions": "",
                     "processors": "",
-                    "groups": "KeyboardMousePlayer2;KeyboardMousePlayer1",
+                    "groups": "Controller;Player1Scheme",
                     "action": "horizontal move",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -128,7 +128,7 @@
                     "path": "<Gamepad>/leftStick/left",
                     "interactions": "",
                     "processors": "",
-                    "groups": "KeyboardMousePlayer1;KeyboardMousePlayer2",
+                    "groups": "Controller;Player1Scheme",
                     "action": "horizontal move",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -139,7 +139,7 @@
                     "path": "<Gamepad>/leftStick/right",
                     "interactions": "",
                     "processors": "",
-                    "groups": "KeyboardMousePlayer1;KeyboardMousePlayer2",
+                    "groups": "Controller;Player1Scheme",
                     "action": "horizontal move",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -150,7 +150,7 @@
                     "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
-                    "groups": "KeyboardMousePlayer1",
+                    "groups": "Player1Scheme",
                     "action": "vertical move",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -161,7 +161,7 @@
                     "path": "<Gamepad>/leftStick/up",
                     "interactions": "",
                     "processors": "",
-                    "groups": "KeyboardMousePlayer1;KeyboardMousePlayer2",
+                    "groups": "Controller;Player1Scheme",
                     "action": "vertical move",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -172,7 +172,7 @@
                     "path": "<Gamepad>/leftStick/down",
                     "interactions": "",
                     "processors": "",
-                    "groups": "KeyboardMousePlayer1;KeyboardMousePlayer2",
+                    "groups": "Controller",
                     "action": "duck",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -183,7 +183,7 @@
                     "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
-                    "groups": "KeyboardMousePlayer1",
+                    "groups": "Player1Scheme",
                     "action": "duck",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -229,7 +229,7 @@
                     "path": "<Keyboard>/leftArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Player2Scheme",
                     "action": "horizontal move",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -240,7 +240,7 @@
                     "path": "<Keyboard>/rightArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Player2Scheme",
                     "action": "horizontal move",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -262,7 +262,7 @@
                     "path": "<Keyboard>/leftArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Player2Scheme",
                     "action": "horizontal move",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -273,7 +273,7 @@
                     "path": "<Keyboard>/rightArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Player2Scheme",
                     "action": "horizontal move",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -284,7 +284,7 @@
                     "path": "<Gamepad>/leftStick/left",
                     "interactions": "",
                     "processors": "",
-                    "groups": "KeyboardMousePlayer1;KeyboardMousePlayer2",
+                    "groups": "Player2Scheme;Controller",
                     "action": "horizontal move",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -295,7 +295,7 @@
                     "path": "<Gamepad>/leftStick/right",
                     "interactions": "",
                     "processors": "",
-                    "groups": "KeyboardMousePlayer1;KeyboardMousePlayer2",
+                    "groups": "Player2Scheme;Controller",
                     "action": "horizontal move",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -317,7 +317,7 @@
                     "path": "<Gamepad>/leftStick/left",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Player2Scheme;Controller",
                     "action": "horizontal move",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -328,7 +328,7 @@
                     "path": "<Gamepad>/leftStick/right",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Player2Scheme;Controller",
                     "action": "horizontal move",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -339,7 +339,7 @@
                     "path": "<Keyboard>/upArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Player2Scheme",
                     "action": "vertical move",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -350,7 +350,7 @@
                     "path": "<Gamepad>/leftStick/up",
                     "interactions": "",
                     "processors": "",
-                    "groups": "KeyboardMousePlayer1;KeyboardMousePlayer2",
+                    "groups": "Player2Scheme",
                     "action": "vertical move",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -361,7 +361,7 @@
                     "path": "<Keyboard>/downArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Player2Scheme",
                     "action": "duck",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -369,10 +369,10 @@
                 {
                     "name": "",
                     "id": "9e2b53b9-d1be-4d71-93cc-fd7d848b356b",
-                    "path": "<Keyboard>/s",
+                    "path": "<Keyboard>/downArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Player2Scheme",
                     "action": "duck",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -382,8 +382,8 @@
     ],
     "controlSchemes": [
         {
-            "name": "KeyboardMousePlayer1",
-            "bindingGroup": "KeyboardMousePlayer1",
+            "name": "Player1Scheme",
+            "bindingGroup": "Player1Scheme",
             "devices": [
                 {
                     "devicePath": "<Keyboard>",
@@ -404,8 +404,8 @@
             ]
         },
         {
-            "name": "KeyboardMousePlayer2",
-            "bindingGroup": "KeyboardMousePlayer2",
+            "name": "Player2Scheme",
+            "bindingGroup": "Player2Scheme",
             "devices": [
                 {
                     "devicePath": "<Keyboard>",

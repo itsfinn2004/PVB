@@ -64,7 +64,7 @@ namespace FistFury.Input
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""KeyboardMousePlayer1"",
+                    ""groups"": ""Player1Scheme"",
                     ""action"": ""horizontal move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -75,7 +75,7 @@ namespace FistFury.Input
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""KeyboardMousePlayer1"",
+                    ""groups"": ""Player1Scheme"",
                     ""action"": ""horizontal move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -97,7 +97,7 @@ namespace FistFury.Input
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Player1Scheme"",
                     ""action"": ""horizontal move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -108,7 +108,7 @@ namespace FistFury.Input
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Player1Scheme"",
                     ""action"": ""horizontal move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -119,7 +119,7 @@ namespace FistFury.Input
                     ""path"": ""<Gamepad>/leftStick/left"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""KeyboardMousePlayer1;KeyboardMousePlayer2"",
+                    ""groups"": ""Controller;Player1Scheme"",
                     ""action"": ""horizontal move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -130,7 +130,7 @@ namespace FistFury.Input
                     ""path"": ""<Gamepad>/leftStick/right"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""KeyboardMousePlayer2;KeyboardMousePlayer1"",
+                    ""groups"": ""Controller;Player1Scheme"",
                     ""action"": ""horizontal move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -152,7 +152,7 @@ namespace FistFury.Input
                     ""path"": ""<Gamepad>/leftStick/left"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""KeyboardMousePlayer1;KeyboardMousePlayer2"",
+                    ""groups"": ""Controller;Player1Scheme"",
                     ""action"": ""horizontal move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -163,7 +163,7 @@ namespace FistFury.Input
                     ""path"": ""<Gamepad>/leftStick/right"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""KeyboardMousePlayer1;KeyboardMousePlayer2"",
+                    ""groups"": ""Controller;Player1Scheme"",
                     ""action"": ""horizontal move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -174,7 +174,7 @@ namespace FistFury.Input
                     ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""KeyboardMousePlayer1"",
+                    ""groups"": ""Player1Scheme"",
                     ""action"": ""vertical move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -185,7 +185,7 @@ namespace FistFury.Input
                     ""path"": ""<Gamepad>/leftStick/up"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""KeyboardMousePlayer1;KeyboardMousePlayer2"",
+                    ""groups"": ""Controller;Player1Scheme"",
                     ""action"": ""vertical move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -196,7 +196,7 @@ namespace FistFury.Input
                     ""path"": ""<Gamepad>/leftStick/down"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""KeyboardMousePlayer1;KeyboardMousePlayer2"",
+                    ""groups"": ""Controller"",
                     ""action"": ""duck"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -207,7 +207,7 @@ namespace FistFury.Input
                     ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""KeyboardMousePlayer1"",
+                    ""groups"": ""Player1Scheme"",
                     ""action"": ""duck"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -253,7 +253,7 @@ namespace FistFury.Input
                     ""path"": ""<Keyboard>/leftArrow"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Player2Scheme"",
                     ""action"": ""horizontal move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -264,7 +264,7 @@ namespace FistFury.Input
                     ""path"": ""<Keyboard>/rightArrow"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Player2Scheme"",
                     ""action"": ""horizontal move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -286,7 +286,7 @@ namespace FistFury.Input
                     ""path"": ""<Keyboard>/leftArrow"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Player2Scheme"",
                     ""action"": ""horizontal move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -297,7 +297,7 @@ namespace FistFury.Input
                     ""path"": ""<Keyboard>/rightArrow"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Player2Scheme"",
                     ""action"": ""horizontal move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -308,7 +308,7 @@ namespace FistFury.Input
                     ""path"": ""<Gamepad>/leftStick/left"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""KeyboardMousePlayer1;KeyboardMousePlayer2"",
+                    ""groups"": ""Player2Scheme;Controller"",
                     ""action"": ""horizontal move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -319,7 +319,7 @@ namespace FistFury.Input
                     ""path"": ""<Gamepad>/leftStick/right"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""KeyboardMousePlayer1;KeyboardMousePlayer2"",
+                    ""groups"": ""Player2Scheme;Controller"",
                     ""action"": ""horizontal move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -341,7 +341,7 @@ namespace FistFury.Input
                     ""path"": ""<Gamepad>/leftStick/left"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Player2Scheme;Controller"",
                     ""action"": ""horizontal move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -352,7 +352,7 @@ namespace FistFury.Input
                     ""path"": ""<Gamepad>/leftStick/right"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Player2Scheme;Controller"",
                     ""action"": ""horizontal move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -363,7 +363,7 @@ namespace FistFury.Input
                     ""path"": ""<Keyboard>/upArrow"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Player2Scheme"",
                     ""action"": ""vertical move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -374,7 +374,7 @@ namespace FistFury.Input
                     ""path"": ""<Gamepad>/leftStick/up"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""KeyboardMousePlayer1;KeyboardMousePlayer2"",
+                    ""groups"": ""Player2Scheme"",
                     ""action"": ""vertical move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -385,7 +385,7 @@ namespace FistFury.Input
                     ""path"": ""<Keyboard>/downArrow"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Player2Scheme"",
                     ""action"": ""duck"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -393,10 +393,10 @@ namespace FistFury.Input
                 {
                     ""name"": """",
                     ""id"": ""9e2b53b9-d1be-4d71-93cc-fd7d848b356b"",
-                    ""path"": ""<Keyboard>/s"",
+                    ""path"": ""<Keyboard>/downArrow"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Player2Scheme"",
                     ""action"": ""duck"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -406,8 +406,8 @@ namespace FistFury.Input
     ],
     ""controlSchemes"": [
         {
-            ""name"": ""KeyboardMousePlayer1"",
-            ""bindingGroup"": ""KeyboardMousePlayer1"",
+            ""name"": ""Player1Scheme"",
+            ""bindingGroup"": ""Player1Scheme"",
             ""devices"": [
                 {
                     ""devicePath"": ""<Keyboard>"",
@@ -428,8 +428,8 @@ namespace FistFury.Input
             ]
         },
         {
-            ""name"": ""KeyboardMousePlayer2"",
-            ""bindingGroup"": ""KeyboardMousePlayer2"",
+            ""name"": ""Player2Scheme"",
+            ""bindingGroup"": ""Player2Scheme"",
             ""devices"": [
                 {
                     ""devicePath"": ""<Keyboard>"",
@@ -631,13 +631,13 @@ namespace FistFury.Input
             }
         }
         public Player2Actions @Player2 => new Player2Actions(this);
-        private int m_KeyboardMousePlayer1SchemeIndex = -1;
-        public InputControlScheme KeyboardMousePlayer1Scheme
+        private int m_Player1SchemeSchemeIndex = -1;
+        public InputControlScheme Player1SchemeScheme
         {
             get
             {
-                if (m_KeyboardMousePlayer1SchemeIndex == -1) m_KeyboardMousePlayer1SchemeIndex = asset.FindControlSchemeIndex("KeyboardMousePlayer1");
-                return asset.controlSchemes[m_KeyboardMousePlayer1SchemeIndex];
+                if (m_Player1SchemeSchemeIndex == -1) m_Player1SchemeSchemeIndex = asset.FindControlSchemeIndex("Player1Scheme");
+                return asset.controlSchemes[m_Player1SchemeSchemeIndex];
             }
         }
         private int m_ControllerSchemeIndex = -1;
@@ -649,13 +649,13 @@ namespace FistFury.Input
                 return asset.controlSchemes[m_ControllerSchemeIndex];
             }
         }
-        private int m_KeyboardMousePlayer2SchemeIndex = -1;
-        public InputControlScheme KeyboardMousePlayer2Scheme
+        private int m_Player2SchemeSchemeIndex = -1;
+        public InputControlScheme Player2SchemeScheme
         {
             get
             {
-                if (m_KeyboardMousePlayer2SchemeIndex == -1) m_KeyboardMousePlayer2SchemeIndex = asset.FindControlSchemeIndex("KeyboardMousePlayer2");
-                return asset.controlSchemes[m_KeyboardMousePlayer2SchemeIndex];
+                if (m_Player2SchemeSchemeIndex == -1) m_Player2SchemeSchemeIndex = asset.FindControlSchemeIndex("Player2Scheme");
+                return asset.controlSchemes[m_Player2SchemeSchemeIndex];
             }
         }
         public interface IPlayer1Actions
