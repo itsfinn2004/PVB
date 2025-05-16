@@ -15,28 +15,40 @@ namespace FistFury
         
         public int health = 100;
         public int energy = 0;
-        public Slider slider;
-        public GameObject slidergreen;
+        public Slider Healthslider;
+        public GameObject Healthslidergreen;
+        public Slider Energyslider;
+        public GameObject Energysliderblue;
 
 
         private void Update()
         {
-            slider.value = health;
+           Healthslider.value = health;
+            Energyslider.value = energy;
             if (health <= 1)
             {
-                slidergreen.SetActive(false);
+                Healthslidergreen.SetActive(false);
             }
             else
             {
-                slidergreen.SetActive(true);
+                Healthslidergreen.SetActive(true);
             }
+            if(energy <= 1)
+            {
+                Energysliderblue.SetActive(false);
+            }
+            else
+            {
+                Energysliderblue.SetActive(true);
+            }
+
         }
 
 
 
         public void TakeDamage(int damage)
         {
-            slider.value = health;
+       //     Healthslider.value = health;
         }
 
         public void GiveDamage(int damage)
