@@ -1,4 +1,4 @@
-// Made by Finn Streunding on 16/5/2025
+//Gemaakt door finn streunding op 16 mei 2025
 
 using UnityEngine;
 

@@ -7,7 +7,7 @@ using FistFury.StateMachine.States;
 using FistFury.Entities;
 
 namespace FistFury
-    //deze script is gemaakt door Finn Streunding
+//Gemaakt door finn streunding op 16 mei 2025
 {
 
     public class playerController : Core
