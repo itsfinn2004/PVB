@@ -40,9 +40,9 @@ namespace FistFury.Input
                 },
                 {
                     ""name"": ""vertical move"",
-                    ""type"": ""Value"",
+                    ""type"": ""Button"",
                     ""id"": ""565cc778-e4fd-41f7-8e02-b0b40289b40f"",
-                    ""expectedControlType"": ""Axis"",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": ""Press(pressPoint=0.9)"",
                     ""initialStateCheck"": true
@@ -51,6 +51,69 @@ namespace FistFury.Input
                     ""name"": ""duck"",
                     ""type"": ""Button"",
                     ""id"": ""62283047-afa3-4390-86d0-012a3358eb66"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press(pressPoint=0.9)"",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""LightPunch"",
+                    ""type"": ""Button"",
+                    ""id"": ""cc26a589-fda0-416d-b849-c0a08098c94f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MediumPunch"",
+                    ""type"": ""Button"",
+                    ""id"": ""9952010f-c5c6-47e3-819a-2631aac5b36f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""HeavyPunch"",
+                    ""type"": ""Button"",
+                    ""id"": ""07a49949-f193-466d-ac1b-8af651b3c925"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""LightKick"",
+                    ""type"": ""Button"",
+                    ""id"": ""a71ede74-b269-49b3-99ad-1d1d8038bd76"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""HeavyKick"",
+                    ""type"": ""Button"",
+                    ""id"": ""5b032ad5-7e4f-4ee6-8fb9-f1be28aedc5c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Block"",
+                    ""type"": ""Button"",
+                    ""id"": ""50a054e3-664d-4b73-af46-1da19a495fee"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Special"",
+                    ""type"": ""Button"",
+                    ""id"": ""a4378a37-1018-4c62-b1b8-d842d7ec3dc4"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -211,6 +274,83 @@ namespace FistFury.Input
                     ""action"": ""duck"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""41ef24d3-c021-45ff-b2b6-b80d065c5973"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Player1Scheme"",
+                    ""action"": ""LightPunch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""85b1c8ea-e69f-4c22-a2c1-ad9e27b45041"",
+                    ""path"": ""<Keyboard>/h"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Player1Scheme"",
+                    ""action"": ""HeavyPunch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""02e18daf-7c76-4cf7-a156-2fa6fe935d37"",
+                    ""path"": ""<Keyboard>/g"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Player1Scheme"",
+                    ""action"": ""MediumPunch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""619bb6b7-8bea-4538-b479-88dc43bcbf2e"",
+                    ""path"": ""<Keyboard>/c"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Player1Scheme"",
+                    ""action"": ""LightKick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d0091b17-ffac-46ae-87f6-d060f6bea070"",
+                    ""path"": ""<Keyboard>/v"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Player1Scheme"",
+                    ""action"": ""HeavyKick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d157883a-584c-4906-87c6-0fa5bb2ededa"",
+                    ""path"": ""<Keyboard>/b"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Player1Scheme"",
+                    ""action"": ""Block"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6b4b78ec-3847-444d-97ec-24716c73934e"",
+                    ""path"": ""<Keyboard>/n"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Player1Scheme"",
+                    ""action"": ""Special"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -242,7 +382,7 @@ namespace FistFury.Input
                     ""id"": ""32d9b8bc-2cd8-4fa7-9482-887c225d32ce"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Press(pressPoint=0.9)"",
                     ""initialStateCheck"": false
                 }
             ],
@@ -381,7 +521,7 @@ namespace FistFury.Input
                 },
                 {
                     ""name"": """",
-                    ""id"": ""1f224005-0926-4b20-a262-b324ef45b39f"",
+                    ""id"": ""9e2b53b9-d1be-4d71-93cc-fd7d848b356b"",
                     ""path"": ""<Keyboard>/downArrow"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -392,11 +532,11 @@ namespace FistFury.Input
                 },
                 {
                     ""name"": """",
-                    ""id"": ""9e2b53b9-d1be-4d71-93cc-fd7d848b356b"",
-                    ""path"": ""<Keyboard>/downArrow"",
+                    ""id"": ""79a9cf2b-b439-4547-976e-5c2364b031aa"",
+                    ""path"": ""<Gamepad>/leftStick/down"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Player2Scheme"",
+                    ""groups"": ""Controller"",
                     ""action"": ""duck"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -445,6 +585,13 @@ namespace FistFury.Input
             m_Player1_horizontalmove = m_Player1.FindAction("horizontal move", throwIfNotFound: true);
             m_Player1_verticalmove = m_Player1.FindAction("vertical move", throwIfNotFound: true);
             m_Player1_duck = m_Player1.FindAction("duck", throwIfNotFound: true);
+            m_Player1_LightPunch = m_Player1.FindAction("LightPunch", throwIfNotFound: true);
+            m_Player1_MediumPunch = m_Player1.FindAction("MediumPunch", throwIfNotFound: true);
+            m_Player1_HeavyPunch = m_Player1.FindAction("HeavyPunch", throwIfNotFound: true);
+            m_Player1_LightKick = m_Player1.FindAction("LightKick", throwIfNotFound: true);
+            m_Player1_HeavyKick = m_Player1.FindAction("HeavyKick", throwIfNotFound: true);
+            m_Player1_Block = m_Player1.FindAction("Block", throwIfNotFound: true);
+            m_Player1_Special = m_Player1.FindAction("Special", throwIfNotFound: true);
             // Player2
             m_Player2 = asset.FindActionMap("Player2", throwIfNotFound: true);
             m_Player2_horizontalmove = m_Player2.FindAction("horizontal move", throwIfNotFound: true);
@@ -514,6 +661,13 @@ namespace FistFury.Input
         private readonly InputAction m_Player1_horizontalmove;
         private readonly InputAction m_Player1_verticalmove;
         private readonly InputAction m_Player1_duck;
+        private readonly InputAction m_Player1_LightPunch;
+        private readonly InputAction m_Player1_MediumPunch;
+        private readonly InputAction m_Player1_HeavyPunch;
+        private readonly InputAction m_Player1_LightKick;
+        private readonly InputAction m_Player1_HeavyKick;
+        private readonly InputAction m_Player1_Block;
+        private readonly InputAction m_Player1_Special;
         public struct Player1Actions
         {
             private @InputActions m_Wrapper;
@@ -521,6 +675,13 @@ namespace FistFury.Input
             public InputAction @horizontalmove => m_Wrapper.m_Player1_horizontalmove;
             public InputAction @verticalmove => m_Wrapper.m_Player1_verticalmove;
             public InputAction @duck => m_Wrapper.m_Player1_duck;
+            public InputAction @LightPunch => m_Wrapper.m_Player1_LightPunch;
+            public InputAction @MediumPunch => m_Wrapper.m_Player1_MediumPunch;
+            public InputAction @HeavyPunch => m_Wrapper.m_Player1_HeavyPunch;
+            public InputAction @LightKick => m_Wrapper.m_Player1_LightKick;
+            public InputAction @HeavyKick => m_Wrapper.m_Player1_HeavyKick;
+            public InputAction @Block => m_Wrapper.m_Player1_Block;
+            public InputAction @Special => m_Wrapper.m_Player1_Special;
             public InputActionMap Get() { return m_Wrapper.m_Player1; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -539,6 +700,27 @@ namespace FistFury.Input
                 @duck.started += instance.OnDuck;
                 @duck.performed += instance.OnDuck;
                 @duck.canceled += instance.OnDuck;
+                @LightPunch.started += instance.OnLightPunch;
+                @LightPunch.performed += instance.OnLightPunch;
+                @LightPunch.canceled += instance.OnLightPunch;
+                @MediumPunch.started += instance.OnMediumPunch;
+                @MediumPunch.performed += instance.OnMediumPunch;
+                @MediumPunch.canceled += instance.OnMediumPunch;
+                @HeavyPunch.started += instance.OnHeavyPunch;
+                @HeavyPunch.performed += instance.OnHeavyPunch;
+                @HeavyPunch.canceled += instance.OnHeavyPunch;
+                @LightKick.started += instance.OnLightKick;
+                @LightKick.performed += instance.OnLightKick;
+                @LightKick.canceled += instance.OnLightKick;
+                @HeavyKick.started += instance.OnHeavyKick;
+                @HeavyKick.performed += instance.OnHeavyKick;
+                @HeavyKick.canceled += instance.OnHeavyKick;
+                @Block.started += instance.OnBlock;
+                @Block.performed += instance.OnBlock;
+                @Block.canceled += instance.OnBlock;
+                @Special.started += instance.OnSpecial;
+                @Special.performed += instance.OnSpecial;
+                @Special.canceled += instance.OnSpecial;
             }
 
             private void UnregisterCallbacks(IPlayer1Actions instance)
@@ -552,6 +734,27 @@ namespace FistFury.Input
                 @duck.started -= instance.OnDuck;
                 @duck.performed -= instance.OnDuck;
                 @duck.canceled -= instance.OnDuck;
+                @LightPunch.started -= instance.OnLightPunch;
+                @LightPunch.performed -= instance.OnLightPunch;
+                @LightPunch.canceled -= instance.OnLightPunch;
+                @MediumPunch.started -= instance.OnMediumPunch;
+                @MediumPunch.performed -= instance.OnMediumPunch;
+                @MediumPunch.canceled -= instance.OnMediumPunch;
+                @HeavyPunch.started -= instance.OnHeavyPunch;
+                @HeavyPunch.performed -= instance.OnHeavyPunch;
+                @HeavyPunch.canceled -= instance.OnHeavyPunch;
+                @LightKick.started -= instance.OnLightKick;
+                @LightKick.performed -= instance.OnLightKick;
+                @LightKick.canceled -= instance.OnLightKick;
+                @HeavyKick.started -= instance.OnHeavyKick;
+                @HeavyKick.performed -= instance.OnHeavyKick;
+                @HeavyKick.canceled -= instance.OnHeavyKick;
+                @Block.started -= instance.OnBlock;
+                @Block.performed -= instance.OnBlock;
+                @Block.canceled -= instance.OnBlock;
+                @Special.started -= instance.OnSpecial;
+                @Special.performed -= instance.OnSpecial;
+                @Special.canceled -= instance.OnSpecial;
             }
 
             public void RemoveCallbacks(IPlayer1Actions instance)
@@ -663,6 +866,13 @@ namespace FistFury.Input
             void OnHorizontalmove(InputAction.CallbackContext context);
             void OnVerticalmove(InputAction.CallbackContext context);
             void OnDuck(InputAction.CallbackContext context);
+            void OnLightPunch(InputAction.CallbackContext context);
+            void OnMediumPunch(InputAction.CallbackContext context);
+            void OnHeavyPunch(InputAction.CallbackContext context);
+            void OnLightKick(InputAction.CallbackContext context);
+            void OnHeavyKick(InputAction.CallbackContext context);
+            void OnBlock(InputAction.CallbackContext context);
+            void OnSpecial(InputAction.CallbackContext context);
         }
         public interface IPlayer2Actions
         {

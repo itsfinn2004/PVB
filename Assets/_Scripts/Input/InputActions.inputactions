@@ -16,9 +16,9 @@
                 },
                 {
                     "name": "vertical move",
-                    "type": "Value",
+                    "type": "Button",
                     "id": "565cc778-e4fd-41f7-8e02-b0b40289b40f",
-                    "expectedControlType": "Axis",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "Press(pressPoint=0.9)",
                     "initialStateCheck": true
@@ -27,6 +27,69 @@
                     "name": "duck",
                     "type": "Button",
                     "id": "62283047-afa3-4390-86d0-012a3358eb66",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(pressPoint=0.9)",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "LightPunch",
+                    "type": "Button",
+                    "id": "cc26a589-fda0-416d-b849-c0a08098c94f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "MediumPunch",
+                    "type": "Button",
+                    "id": "9952010f-c5c6-47e3-819a-2631aac5b36f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "HeavyPunch",
+                    "type": "Button",
+                    "id": "07a49949-f193-466d-ac1b-8af651b3c925",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "LightKick",
+                    "type": "Button",
+                    "id": "a71ede74-b269-49b3-99ad-1d1d8038bd76",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "HeavyKick",
+                    "type": "Button",
+                    "id": "5b032ad5-7e4f-4ee6-8fb9-f1be28aedc5c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Block",
+                    "type": "Button",
+                    "id": "50a054e3-664d-4b73-af46-1da19a495fee",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Special",
+                    "type": "Button",
+                    "id": "a4378a37-1018-4c62-b1b8-d842d7ec3dc4",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -187,6 +250,83 @@
                     "action": "duck",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "41ef24d3-c021-45ff-b2b6-b80d065c5973",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Player1Scheme",
+                    "action": "LightPunch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "85b1c8ea-e69f-4c22-a2c1-ad9e27b45041",
+                    "path": "<Keyboard>/h",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Player1Scheme",
+                    "action": "HeavyPunch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "02e18daf-7c76-4cf7-a156-2fa6fe935d37",
+                    "path": "<Keyboard>/g",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Player1Scheme",
+                    "action": "MediumPunch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "619bb6b7-8bea-4538-b479-88dc43bcbf2e",
+                    "path": "<Keyboard>/c",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Player1Scheme",
+                    "action": "LightKick",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d0091b17-ffac-46ae-87f6-d060f6bea070",
+                    "path": "<Keyboard>/v",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Player1Scheme",
+                    "action": "HeavyKick",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d157883a-584c-4906-87c6-0fa5bb2ededa",
+                    "path": "<Keyboard>/b",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Player1Scheme",
+                    "action": "Block",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6b4b78ec-3847-444d-97ec-24716c73934e",
+                    "path": "<Keyboard>/n",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Player1Scheme",
+                    "action": "Special",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -218,7 +358,7 @@
                     "id": "32d9b8bc-2cd8-4fa7-9482-887c225d32ce",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Press(pressPoint=0.9)",
                     "initialStateCheck": false
                 }
             ],
@@ -357,7 +497,7 @@
                 },
                 {
                     "name": "",
-                    "id": "1f224005-0926-4b20-a262-b324ef45b39f",
+                    "id": "9e2b53b9-d1be-4d71-93cc-fd7d848b356b",
                     "path": "<Keyboard>/downArrow",
                     "interactions": "",
                     "processors": "",
@@ -368,11 +508,11 @@
                 },
                 {
                     "name": "",
-                    "id": "9e2b53b9-d1be-4d71-93cc-fd7d848b356b",
-                    "path": "<Keyboard>/downArrow",
+                    "id": "79a9cf2b-b439-4547-976e-5c2364b031aa",
+                    "path": "<Gamepad>/leftStick/down",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Player2Scheme",
+                    "groups": "Controller",
                     "action": "duck",
                     "isComposite": false,
                     "isPartOfComposite": false
