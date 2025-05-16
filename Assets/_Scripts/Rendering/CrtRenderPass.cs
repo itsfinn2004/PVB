@@ -84,7 +84,7 @@ namespace FistFury.Rendering
             CommandBufferPool.Release(cmd);
         }
 
-        public void FrameCleanUp(CommandBuffer cmd)
+        public override void OnCameraCleanup(CommandBuffer cmd)
         {
             cmd.ReleaseTemporaryRT(_tempRenderTarget.id);
         }

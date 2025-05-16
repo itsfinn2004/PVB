@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
@@ -48,6 +49,15 @@ namespace FistFury
         public void goToMap(string scene)
         {
             SceneManager.LoadScene(scene);
+        }
+
+        public void Exit()
+        {
+#if UNITY_EDITOR
+            EditorApplication.ExitPlaymode();
+#else
+            Application.Quit();
+#endif
         }
     }
 }

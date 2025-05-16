@@ -11,12 +11,23 @@ namespace UnityEngine.Rendering.Universal
 
         public override void Create()
         {
-            _crtRenderPass = new CrtRenderPass("CRT Filter");
-            _crtRenderPass.renderPassEvent = Settings.RenderPassEvent;
+            _crtRenderPass = new CrtRenderPass("CRT Filter")
+            {
+                renderPassEvent = Settings.RenderPassEvent
+            };
         }
 
         public override void AddRenderPasses(ScriptableRenderer renderer, ref RenderingData renderingData)
         {
+            // skip if disabled
+            if (!Settings.IsEnabled)
+                return;
+
+            // skip in scene view
+            if (renderingData.cameraData.cameraType == CameraType.SceneView && Settings.IsEnabled)
+                return;
+
+            // log a warning that there's no material assigned
             if (!Settings.CRTMaterial)
             {
                 Debug.LogWarning("CRT Material is not assigned. Create a material with the CRT Filter Shader and assign it.");
