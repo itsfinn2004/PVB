@@ -28,7 +28,7 @@ MonoBehaviour:
     Contrast: 1.04
     Flicker: 0.0337
     VignetteIntensity: 0.214
-    NoiseIntensity: 0.159
+    NoiseIntensity: 0.145
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -43,7 +43,7 @@ Material:
     - _Curvature: 0.2042
     - _EnableExternalAlpha: 0
     - _Flicker: 0.0337
-    - _NoiseIntensity: 0.159
+    - _NoiseIntensity: 0.145
     - _PaniniCropFit: 0.5
     - _PaniniCropToFit: 0.6
     - _PaniniDistance: 0.495
