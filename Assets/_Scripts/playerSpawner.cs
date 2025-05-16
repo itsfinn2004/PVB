@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -10,15 +10,36 @@ namespace FistFury
     public class playerSpawner : MonoBehaviour
     {
         public Transform[] spawnPoints;
+        public GameObject[] playerPrefabs; 
+
         private int playerCount = 0;
 
-        public void OnPlayerJoined(PlayerInput playerInput)
+        void Start()
         {
-            if (playerCount < spawnPoints.Length)
+            SpawnPlayer("Player1Keyboard");
+            SpawnPlayer("Player2Keyboard");
+        }
+
+        public void SpawnPlayer(string controlScheme)
+        {
+            if (playerCount >= spawnPoints.Length)
             {
-                playerInput.transform.position = spawnPoints[playerCount].position;
+                Debug.LogWarning("Too many players!");
+                return;
             }
 
+            var prefab = playerPrefabs[playerCount];
+            var spawnPoint = spawnPoints[playerCount].position;
+
+            var playerInput = PlayerInput.Instantiate(
+                prefab,
+                playerCount,
+                controlScheme: controlScheme,
+                splitScreenIndex: -1,
+                pairWithDevice: null
+            );
+
+            playerInput.transform.position = spawnPoint;
             playerCount++;
         }
     }
