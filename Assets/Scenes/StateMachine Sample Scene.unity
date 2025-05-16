@@ -776,26 +776,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 196972972194010856, guid: 1027afe296be989418acb3038e6d2153, type: 3}
-      propertyPath: m_RendererIndex
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 196972972194010856, guid: 1027afe296be989418acb3038e6d2153, type: 3}
-      propertyPath: m_RenderPostProcessing
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 196972972194010857, guid: 1027afe296be989418acb3038e6d2153, type: 3}
-      propertyPath: m_BackGroundColor.b
-      value: 0.49056602
-      objectReference: {fileID: 0}
-    - target: {fileID: 196972972194010857, guid: 1027afe296be989418acb3038e6d2153, type: 3}
-      propertyPath: m_BackGroundColor.g
-      value: 0.45386606
-      objectReference: {fileID: 0}
-    - target: {fileID: 196972972194010857, guid: 1027afe296be989418acb3038e6d2153, type: 3}
-      propertyPath: m_BackGroundColor.r
-      value: 0.40494835
-      objectReference: {fileID: 0}
     - target: {fileID: 196972972194010858, guid: 1027afe296be989418acb3038e6d2153, type: 3}
       propertyPath: m_Name
       value: Main Camera
@@ -812,10 +792,6 @@ PrefabInstance:
     - target: {fileID: 2316172921149391536, guid: f62432824b031aa4a8b25afc8f11be0a, type: 3}
       propertyPath: m_Name
       value: Global Volume
-      objectReference: {fileID: 0}
-    - target: {fileID: 2316172921149391536, guid: f62432824b031aa4a8b25afc8f11be0a, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2316172921149391538, guid: f62432824b031aa4a8b25afc8f11be0a, type: 3}
       propertyPath: m_RootOrder

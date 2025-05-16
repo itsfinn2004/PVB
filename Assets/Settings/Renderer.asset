@@ -16,18 +16,18 @@ MonoBehaviour:
   Settings:
     RenderPassEvent: 550
     CRTMaterial: {fileID: 2100000, guid: 26bcb09571aeac645b47c3d414866d77, type: 2}
-    Curvature: 0.192
-    PaniniDistance: 0.29
+    Curvature: 0.2042
+    PaniniDistance: 0.495
     PaniniCropToFit: 0.6
-    ScanlineIntensity: 0.107
-    ScanlineCount: 117
-    ScanlineSpeed: 2
-    RgbShift: 0.92
-    Brightness: 1.09
-    Contrast: 1.058
-    Flicker: 0.0139
-    VignetteIntensity: 0.181
-    NoiseIntensity: 0.116
+    ScanlineIntensity: 0.11
+    ScanlineCount: 54
+    ScanlineSpeed: 2.81
+    RgbShift: 1.3
+    Brightness: 1.1
+    Contrast: 1.04
+    Flicker: 0.0337
+    VignetteIntensity: 0.214
+    NoiseIntensity: 0.159
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
