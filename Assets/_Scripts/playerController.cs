@@ -68,6 +68,7 @@ namespace FistFury
         }
         private void Awake()
         {
+            
             rb = GetComponent<Rigidbody2D>();
             SetupInstances();
             StateMachine.Set(idle);

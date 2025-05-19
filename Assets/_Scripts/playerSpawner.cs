@@ -15,7 +15,7 @@ namespace FistFury
         private int playerCount = 0;
 
 
-        void Start()
+        void Awake()
         {
             // Example setup: spawn 2 players
             SpawnPlayer("Player1Scheme", Keyboard.current);         

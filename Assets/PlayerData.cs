@@ -12,17 +12,31 @@ namespace FistFury
 
     public class PlayerData : MonoBehaviour
     {
-
+        public int playernumber;
         public int health = 100;
         public int energy = 0;
         public int lifes = 3;
         public Image[] lifeimages;
+        public Transform spawnpoint;
         public Slider Healthslider;
         public GameObject Healthslidergreen;
         public Slider Energyslider;
         public GameObject Energysliderblue;
 
+        private void Awake()
+        {
+            if(playernumber == 1)
+            {
+            spawnpoint = GameObject.Find("SpawnPosition p1").transform;
 
+            }
+            else
+            {
+                spawnpoint = GameObject.Find("SpawnPosition p2").transform;
+
+            }
+
+        }
         private void Update()
         {
             Healthslider.value = health;

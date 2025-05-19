@@ -26,16 +26,33 @@ namespace FistFury
             }
         }
 
-        
+
 
         private void Die()
         {
-            Debug.Log($"{gameObject.name} is KO'd.");
-            // Handle death logic
-            playerData.lifeimages[playerData.lifes -1].gameObject.SetActive(false);
-            playerData.lifes -= 1;
+           
 
-            // hier verder de round won barrel
+            if (playerData.lifes == 0)
+            {
+                // spel klaar
+            }
+            else
+            {
+                {
+                    Debug.Log($"{gameObject.name} is KO'd.");
+                    playerData.lifeimages[playerData.lifes - 1].gameObject.SetActive(false);
+                    playerData.lifes -= 1;
+
+                    FindObjectOfType<RoundsManager>().NewRound(); 
+                }
+            }
+
+        }
+
+        public void onNewRound()
+        {
+            playerData.health = 100;
+            transform.position = playerData.spawnpoint.position;
         }
     }
 }

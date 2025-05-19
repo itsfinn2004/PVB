@@ -1458,6 +1458,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 514e4dc7718670749bee4ebcb84767e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playernumber: 1
   health: 42
   energy: 0
   lifes: 3
@@ -1465,6 +1466,7 @@ MonoBehaviour:
   - {fileID: 6273857231263360507}
   - {fileID: 3008822632981140796}
   - {fileID: 4195586834544383090}
+  spawnpoint: {fileID: 0}
   Healthslider: {fileID: 6102812519549417063}
   Healthslidergreen: {fileID: 538284889128537079}
   Energyslider: {fileID: 7718981055765397755}
