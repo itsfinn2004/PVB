@@ -16,6 +16,16 @@ namespace FistFury
         public Rigidbody2D rb;
         public float jumpForce = 7f;
         private bool isGrounded;
+        public SpriteRenderer spriteRenderer;
+
+        [Header("state checks")]
+        private bool isDucking;
+        private bool isBlocking;
+        private bool isJumping;
+        private bool isLpunch;
+        private bool isMpunch;
+        private bool isLKick;
+        private bool isMKick;
 
         [Header("Behaviors")]
         [SerializeField] private Idle idle;
@@ -50,6 +60,11 @@ namespace FistFury
 
 #endif
 
+        private void Start()
+        {
+            SetupInstances();
+            StateMachine.Set(idle);
+        }
         private void Awake()
         {
             rb = GetComponent<Rigidbody2D>();
@@ -59,38 +74,33 @@ namespace FistFury
 
         public void onHorizontalMove(InputAction.CallbackContext context)
         {
-
-            State oldState = StateMachine.CurrentState;
-            State newState;
-
-
-          
-            newState = move;
-            Debug.Log(newState);
             float input = context.ReadValue<float>();
-            movement = new Vector2(input, 0f);
-            newState = idle;
-            Debug.Log(newState);
 
-         
-             if (context.canceled)
+
+            if (!isDucking)
             {
-               newState = idle;
-                Debug.Log("de state is nu idle als het goed is... " + newState);
+                movement = new Vector2(input, 0f);
             }
 
 
+
+            if (!isDucking)
+            { 
+
+            if (input > 0f)
+                spriteRenderer.flipX = false;
+            else if (input < 0f)
+                spriteRenderer.flipX = true;
+            }
         }
 
         public void onJump(InputAction.CallbackContext context)
         {
             Debug.Log("spring test");
-            if (context.performed && isGrounded)
+
+            if (context.performed && isGrounded && !isDucking)
             {
-                State oldState = StateMachine.CurrentState;
-                State newState;
-                newState = jump;
-                Debug.Log(newState);
+                isJumping = context.ReadValueAsButton();
                 rb.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
                 isGrounded = false;
                
@@ -100,79 +110,103 @@ namespace FistFury
 
         public void onDuck(InputAction.CallbackContext context)
         {
-            State oldState = StateMachine.CurrentState;
-            State newState;
-            newState = duck;
-            Debug.Log(newState);
+            if( isGrounded == true)
+            {
+            isDucking = context.ReadValueAsButton();
+            movement = new Vector2(0f, 0f);
+
+            }
         }
 
         public void onLightPunch(InputAction.CallbackContext context)
         {
-            State oldState = StateMachine.CurrentState;
-            State newState;
-            newState = Lpunch;
-            Debug.Log(newState);
+            
+            isLpunch = context.ReadValueAsButton();
+           
+
+
         }
         public void onMediumPunch(InputAction.CallbackContext context)
         {
-            State oldState = StateMachine.CurrentState;
-            State newState;
-            newState = Mpunch;
-            Debug.Log(newState);
+            isMpunch = context.ReadValueAsButton();
         }
         public void onHeavyPunch(InputAction.CallbackContext context)
         {
-            State oldState = StateMachine.CurrentState;
-            State newState;
-            newState = Hpunch;
-            Debug.Log(newState);
+           
+
+
         }
         public void onLightKick(InputAction.CallbackContext context)
         {
-            State oldState = StateMachine.CurrentState;
-            State newState;
-            newState = Lkick;
-            Debug.Log(newState);
+          isLKick = context.ReadValueAsButton();
         }
         public void onMediumKick(InputAction.CallbackContext context)
         {
-            State oldState = StateMachine.CurrentState;
-            State newState;
-            newState = Mkick;
-            Debug.Log(newState);
+            isMKick = context.ReadValueAsButton();
         }
         public void onSpecial(InputAction.CallbackContext context)
         {
-            State oldState = StateMachine.CurrentState;
-            State newState;
-            newState = special;
-            Debug.Log(newState);
+          
         }
         public void onBlock(InputAction.CallbackContext context)
         {
-            State oldState = StateMachine.CurrentState;
-            State newState;
-            newState = block;
-            Debug.Log(newState);
+            if (isGrounded == true)
+            {
+                isBlocking = context.ReadValueAsButton();
+                movement = new Vector2(0f, 0f);
+
+            }
         }
 
 
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            if(collision.gameObject.CompareTag("Ground"))
+            State oldState = StateMachine.CurrentState;
+            State newState = idle;
+            if (collision.gameObject.CompareTag("Ground"))
             {
                 isGrounded = true;
-                State oldState = StateMachine.CurrentState;
-                State newState;
-                newState = idle;
-                Debug.Log("de state is nu idle als het goed is... " + newState);
+                isJumping = false;
+                
             }
         }
 
         private void Update()
         {
             transform.Translate(movement * Time.deltaTime * 5f);
+            SelectState();
+
+        }
+
+        private void SelectState()
+        {
+            State oldState = StateMachine.CurrentState;
+            State newState = idle;
+
+
+            if (isDucking)
+                newState = duck;
+            else if (isBlocking)
+                newState = block;
+            else if (isJumping)
+                newState = jump;
+
+            else if (Mathf.Abs(movement.x) > 0.01f)
+                newState = move;
+            else if (isLpunch)
+                newState = Lpunch;
+            else if (isMpunch)
+                newState = Mpunch;
+            else if (isLKick)
+                newState = Lkick;
+            else if (isMKick)
+                newState = Mkick;
+            else
+                newState = idle;
+
+            if (newState != oldState)
+                StateMachine.Set(newState);
         }
     }
 }

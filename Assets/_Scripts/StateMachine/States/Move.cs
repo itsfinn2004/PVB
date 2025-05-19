@@ -11,10 +11,14 @@ namespace FistFury.StateMachine.States
         public override void Enter()
         {
             base.Enter();
-
+            Debug.Log(anim);
+            Debug.Log(Animator);
             // play animation
             if (Animator && anim)
+            {
+                Debug.Log("test");
                 Animator.Play(anim.name);
+            }
         }
     }
 }

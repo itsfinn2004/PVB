@@ -11,10 +11,13 @@ namespace FistFury.StateMachine.States
         public override void Enter()
         {
             base.Enter();
-
             // play animation
             if (Animator && anim)
                 Animator.Play(anim.name);
+            //if(animatie is klaar)
+            //{
+            //  neem de trigger weg
+            //}
         }
     }
 }

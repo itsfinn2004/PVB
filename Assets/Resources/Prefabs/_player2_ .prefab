@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Core>k__BackingField: {fileID: 0}
-  anim: {fileID: 0}
+  anim: {fileID: 7400000, guid: 743f1ca0d4e73de4d8f0bad951fcc724, type: 2}
 --- !u!1 &2572766965591989690
 GameObject:
   m_ObjectHideFlags: 0
@@ -683,7 +683,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Core>k__BackingField: {fileID: 0}
-  anim: {fileID: 0}
+  anim: {fileID: 7400000, guid: f2d48c4efe4abd04390ccd9a788963cf, type: 2}
 --- !u!1 &5281061666694722117
 GameObject:
   m_ObjectHideFlags: 0
@@ -729,7 +729,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Core>k__BackingField: {fileID: 0}
-  anim: {fileID: 0}
+  anim: {fileID: 7400000, guid: 441f50a77014e384fbaa45f8200e38c8, type: 2}
 --- !u!1 &5605425709055332141
 GameObject:
   m_ObjectHideFlags: 0
@@ -865,7 +865,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Core>k__BackingField: {fileID: 0}
-  anim: {fileID: 0}
+  anim: {fileID: 7400000, guid: e85b7168897460d4d8295bbaba701cb0, type: 2}
 --- !u!1 &5899796796311927693
 GameObject:
   m_ObjectHideFlags: 0
@@ -881,6 +881,7 @@ GameObject:
   - component: {fileID: 5899796796311927692}
   - component: {fileID: 5899796796311927683}
   - component: {fileID: 3680781839204543748}
+  - component: {fileID: 771363615961423397}
   m_Layer: 0
   m_Name: '_player2_ '
   m_TagString: Untagged
@@ -1108,10 +1109,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9eed3a4c8365294783d96a0589b9ecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Animator>k__BackingField: {fileID: 0}
-  <Body>k__BackingField: {fileID: 0}
+  <Animator>k__BackingField: {fileID: 771363615961423397}
+  <Body>k__BackingField: {fileID: 5899796796311927694}
   rb: {fileID: 5899796796311927694}
   jumpForce: 7
+  spriteRenderer: {fileID: 5899796796311927681}
   idle: {fileID: 7899890985094054070}
   move: {fileID: 7191882799662569078}
   jump: {fileID: 5982894676472536738}
@@ -1167,6 +1169,27 @@ MonoBehaviour:
   Healthslidergreen: {fileID: 5914554922961747076}
   Energyslider: {fileID: 2833250444765569803}
   Energysliderblue: {fileID: 3654871832783529684}
+--- !u!95 &771363615961423397
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5899796796311927693}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f675b74acd3239d4e858473bf469ece4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &5914554922961747076
 GameObject:
   m_ObjectHideFlags: 0
@@ -1249,7 +1272,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Core>k__BackingField: {fileID: 0}
-  anim: {fileID: 0}
+  anim: {fileID: 7400000, guid: 437838bb0aa69754eadb2f63799107fa, type: 2}
 --- !u!1 &7148346628360867798
 GameObject:
   m_ObjectHideFlags: 0
@@ -1371,7 +1394,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Core>k__BackingField: {fileID: 0}
-  anim: {fileID: 0}
+  anim: {fileID: 7400000, guid: b315f685d392c254bbe6942737cdbd7e, type: 2}
 --- !u!1 &8152638379127716799
 GameObject:
   m_ObjectHideFlags: 0
@@ -1417,7 +1440,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Core>k__BackingField: {fileID: 0}
-  anim: {fileID: 0}
+  anim: {fileID: 7400000, guid: f00eb8e46d760b147a5b76d74ef30885, type: 2}
 --- !u!1 &8814187977046821740
 GameObject:
   m_ObjectHideFlags: 0
