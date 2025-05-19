@@ -9,10 +9,10 @@ using TMPro;
 
 namespace FistFury
 {
-    
+
     public class PlayerData : MonoBehaviour
     {
-        
+
         public int health = 100;
         public int energy = 0;
         public Slider Healthslider;
@@ -23,7 +23,7 @@ namespace FistFury
 
         private void Update()
         {
-           Healthslider.value = health;
+            Healthslider.value = health;
             Energyslider.value = energy;
             if (health <= 1)
             {
@@ -33,7 +33,7 @@ namespace FistFury
             {
                 Healthslidergreen.SetActive(true);
             }
-            if(energy <= 1)
+            if (energy <= 1)
             {
                 Energysliderblue.SetActive(false);
             }
@@ -44,19 +44,6 @@ namespace FistFury
 
         }
 
-
-
-        public void TakeDamage(int damage)
-        {
-            health = -damage;
-           Healthslider.value = health;
-            if(health <= 0)
-            {
-                //you lost git gud hier komt de code blok die jou een leven weg haalt
-            }
-        }
-
-        
     }
 }
 
