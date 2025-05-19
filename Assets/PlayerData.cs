@@ -15,6 +15,8 @@ namespace FistFury
 
         public int health = 100;
         public int energy = 0;
+        public int lifes = 3;
+        public Image[] lifeimages;
         public Slider Healthslider;
         public GameObject Healthslidergreen;
         public Slider Energyslider;
@@ -42,6 +44,12 @@ namespace FistFury
                 Energysliderblue.SetActive(true);
             }
 
+        }
+
+        public void AddEnergy(int addenergy)
+        {
+            energy += addenergy;
+            energy = (int)Mathf.Clamp(energy, 0, 100);
         }
 
     }

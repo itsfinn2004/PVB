@@ -17,6 +17,7 @@ namespace FistFury
         public float jumpForce = 7f;
         private bool isGrounded;
         public SpriteRenderer spriteRenderer;
+        public PlayerData pd;
 
         [Header("state checks")]
         private bool isDucking;

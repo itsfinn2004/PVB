@@ -11,6 +11,11 @@ namespace FistFury.StateMachine.States
         public override void Enter()
         {
             base.Enter();
+
+            if(Core is playerController p)
+            {
+                p.pd.AddEnergy(10);
+            }
             // play animation
             if (Animator && anim)
                 Animator.Play(anim.name);
