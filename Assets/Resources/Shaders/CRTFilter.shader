@@ -102,12 +102,15 @@ Shader "FoF/CRTFilter"
                 float2 screenCoord = uv * 2.0 - 1.0;
                 
                 // Parameters
-                float d = _PaniniDistance;
+                float d = -_PaniniDistance;
                 float cropFactor = _PaniniCropToFit;
                 
                 // calc effect
-                float paniniFactorX = (1.0 - d) + d / (1.0 + screenCoord.x * screenCoord.x);
-                float2 paniniCoord;
+                float intensityAdjustment = lerp(1.0, 0.5, cropFactor);
+			    float adjustedD = d * intensityAdjustment;
+			    
+			    float paniniFactorX = (1.0 - adjustedD) + adjustedD / (1.0 + screenCoord.x * screenCoord.x);
+			    float2 paniniCoord;
                 
                 // apply
                 paniniCoord.x = screenCoord.x * paniniFactorX;
