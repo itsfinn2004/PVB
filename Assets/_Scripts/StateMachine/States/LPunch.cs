@@ -14,15 +14,12 @@ namespace FistFury.StateMachine.States
 
             if(Core is playerController p)
             {
-                p.pd.AddEnergy(10);
+              
             }
             // play animation
             if (Animator && anim)
                 Animator.Play(anim.name);
-            //if(animatie is klaar)
-            //{
-            //  neem de trigger weg
-            //}
+            
         }
     }
 }

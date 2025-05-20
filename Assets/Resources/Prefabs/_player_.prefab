@@ -1435,6 +1435,7 @@ MonoBehaviour:
   jumpForce: 7
   spriteRenderer: {fileID: 4219867603245107077}
   pd: {fileID: 5950740443372790170}
+  inputEnabled: 0
   idle: {fileID: 2086666518118478367}
   move: {fileID: 3564894119455617563}
   jump: {fileID: 5886977308314210695}

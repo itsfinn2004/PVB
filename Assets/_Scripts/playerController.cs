@@ -18,6 +18,7 @@ namespace FistFury
         private bool isGrounded;
         public SpriteRenderer spriteRenderer;
         public PlayerData pd;
+        public bool inputEnabled = true;
 
         [Header("state checks")]
         private bool isDucking;
@@ -73,26 +74,28 @@ namespace FistFury
             SetupInstances();
             StateMachine.Set(idle);
         }
+       
+
 
         public void onHorizontalMove(InputAction.CallbackContext context)
         {
             float input = context.ReadValue<float>();
 
 
-            if (!isDucking)
+            if (!isDucking && inputEnabled)
             {
                 movement = new Vector2(input, 0f);
             }
 
 
 
-            if (!isDucking)
-            { 
+            if (!isDucking )
+            {
 
-            if (input > 0f)
-                spriteRenderer.flipX = false;
-            else if (input < 0f)
-                spriteRenderer.flipX = true;
+                if (movement.x < 0)
+                    transform.localScale = new Vector3(-1, 1, 1);
+                else if (movement.x > 0)
+                    transform.localScale = new Vector3(1, 1, 1);
             }
         }
 
@@ -100,7 +103,7 @@ namespace FistFury
         {
             Debug.Log("spring test");
 
-            if (context.performed && isGrounded && !isDucking)
+            if (context.performed && isGrounded && !isDucking && inputEnabled)
             {
                 isJumping = context.ReadValueAsButton();
                 rb.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+//Gemaakt door finn streunding op 19 mei 2025
 
 namespace FistFury
 {
@@ -19,6 +20,7 @@ namespace FistFury
             Debug.Log($"{gameObject.name} received {damage} damage!");
 
             playerData.health -= damage;
+            playerData.energy += 8;
 
             if (playerData.health <= 0)
             {
