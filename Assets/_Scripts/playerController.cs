@@ -111,7 +111,7 @@ namespace FistFury
             float input = context.ReadValue<float>();
 
 
-            if (!isDucking && inputEnabled)
+            if (!isDucking && inputEnabled && !isAttacking)
             {
                 movement = new Vector2(input, 0f);
             }
@@ -165,6 +165,7 @@ namespace FistFury
             //isPunching = context.ReadValueAsButton();
             isAttacking = context.ReadValueAsButton();
 
+            movement = Vector2.zero;
             meleeType = MeleeType.Punch;
             punchType = PunchType.Light; 
 
@@ -173,6 +174,7 @@ namespace FistFury
         {
             isAttacking = context.ReadValueAsButton();
 
+            movement = Vector2.zero;
             meleeType = MeleeType.Punch;
             punchType = PunchType.Medium;
         }
@@ -180,6 +182,7 @@ namespace FistFury
         {
             isAttacking = context.ReadValueAsButton();
 
+            movement = Vector2.zero;
             meleeType = MeleeType.Punch;
             punchType = PunchType.Heavy;
 
@@ -188,12 +191,15 @@ namespace FistFury
         {
           //isLKick = context.ReadValueAsButton();
             isAttacking = context.ReadValueAsButton();
+            movement = Vector2.zero;
+
             meleeType = MeleeType.Kick;
             kickType = KickType.Light;
         }
         public void onMediumKick(InputAction.CallbackContext context)
         {
             isAttacking = context.ReadValueAsButton();
+            movement = Vector2.zero;
 
             meleeType = MeleeType.Kick;
             kickType = KickType.Medium;
@@ -226,13 +232,19 @@ namespace FistFury
 
         private void Update()
         {
-            transform.Translate(movement * Time.deltaTime * 5f);
+            Move();
             SelectState();
             CurrentState.Do();
-            if (CurrentState.IsComplete && CurrentState is Hurt)
+            if (CurrentState.IsComplete && CurrentState is Hurt)  // haha, niet vragen. xoxo niek
             {
                 StateMachine.Set(idle, true);
             }
+        }
+
+        private void Move()
+        {
+            if (!isAttacking)
+                transform.Translate(movement * Time.deltaTime * 5f);
         }
 
         private void SelectState()
@@ -264,6 +276,7 @@ namespace FistFury
             }
             else
             {
+                Debug.Log($"Melee Type: {meleeType.ToString()}");
                 if (meleeType == MeleeType.Punch)
                 {
                     switch (punchType)
@@ -279,14 +292,20 @@ namespace FistFury
                 }
                 else if (meleeType == MeleeType.Kick)
                 {
+                    Debug.Log("jackie cha");
                     switch (kickType)
                     {
                         case KickType.Light:
+                            Debug.Log("robert downey jr ");
                             newState = Lkick;
                             break;
 
                         case KickType.Medium:
                             newState = Mkick;
+                            break;
+
+                        default:
+                            Debug.Log("Dit zou niet moeten gebeuren????");
                             break;
                     }
                 }
