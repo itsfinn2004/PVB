@@ -18,6 +18,7 @@ namespace FistFury
         private bool isGrounded;
         public SpriteRenderer spriteRenderer;
         public PlayerData pd;
+        public bool inputEnabled = true;
 
         [Header("state checks")]
         private bool isDucking;
@@ -27,6 +28,7 @@ namespace FistFury
         private bool isMpunch;
         private bool isLKick;
         private bool isMKick;
+        private bool isJumpKick;
 
         [Header("Behaviors")]
         [SerializeField] private Idle idle;
@@ -40,6 +42,7 @@ namespace FistFury
         [SerializeField] private HPunch Hpunch;
         [SerializeField] private LKick Lkick;
         [SerializeField] private MKick Mkick;
+        [SerializeField] private JumpKick Jumpkick;
         [SerializeField] private Special special;
         [SerializeField] private Block block;
 #if UNITY_EDITOR
@@ -57,6 +60,7 @@ namespace FistFury
             Mkick = GetComponentInChildren<MKick>();
             special = GetComponentInChildren<Special>();
             block = GetComponentInChildren<Block>();
+            Jumpkick = GetComponentInChildren<JumpKick>();
         }
 
 #endif
@@ -73,26 +77,28 @@ namespace FistFury
             SetupInstances();
             StateMachine.Set(idle);
         }
+       
+
 
         public void onHorizontalMove(InputAction.CallbackContext context)
         {
             float input = context.ReadValue<float>();
 
 
-            if (!isDucking)
+            if (!isDucking && inputEnabled)
             {
                 movement = new Vector2(input, 0f);
             }
 
 
 
-            if (!isDucking)
-            { 
+            if (!isDucking )
+            {
 
-            if (input > 0f)
-                spriteRenderer.flipX = false;
-            else if (input < 0f)
-                spriteRenderer.flipX = true;
+                if (movement.x < 0)
+                    transform.localScale = new Vector3(-1, 1, 1);
+                else if (movement.x > 0)
+                    transform.localScale = new Vector3(1, 1, 1);
             }
         }
 
@@ -100,7 +106,7 @@ namespace FistFury
         {
             Debug.Log("spring test");
 
-            if (context.performed && isGrounded && !isDucking)
+            if (context.performed && isGrounded && !isDucking && inputEnabled)
             {
                 isJumping = context.ReadValueAsButton();
                 rb.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
@@ -118,6 +124,12 @@ namespace FistFury
             movement = new Vector2(0f, 0f);
 
             }
+        }
+        public void onJumpKick(InputAction.CallbackContext context)
+        {
+            
+                isJumpKick = context.ReadValueAsButton();
+            
         }
 
         public void onLightPunch(InputAction.CallbackContext context)
@@ -191,6 +203,8 @@ namespace FistFury
                 newState = duck;
             else if (isBlocking)
                 newState = block;
+            else if (isJumpKick && !isGrounded)
+                newState = Jumpkick;
             else if (isJumping)
                 newState = jump;
 

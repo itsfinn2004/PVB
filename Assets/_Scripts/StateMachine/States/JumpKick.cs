@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace FistFury.StateMachine.States
 {
-    public class LPunch : State
+    public class JumpKick : State
     {
         [SerializeField] private AnimationClip anim;
 
@@ -12,14 +12,9 @@ namespace FistFury.StateMachine.States
         {
             base.Enter();
 
-            if(Core is playerController p)
-            {
-              
-            }
             // play animation
             if (Animator && anim)
                 Animator.Play(anim.name);
-            
         }
     }
 }
