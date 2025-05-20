@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI; 
 using TMPro;
+using UnityEngine.InputSystem;
+using FistFury.StateMachine;
+using FistFury.StateMachine.States;
+using FistFury.Entities;
 
 
 //Gemaakt door finn streunding op 16 mei 2025
@@ -10,7 +14,7 @@ using TMPro;
 namespace FistFury
 {
 
-    public class PlayerData : MonoBehaviour
+    public class PlayerData : Core
     {
         public int playernumber;
         public int health = 100;
@@ -25,6 +29,8 @@ namespace FistFury
 
         private void Awake()
         {
+
+
             if(playernumber == 1)
             {
             spawnpoint = GameObject.Find("SpawnPosition p1").transform;

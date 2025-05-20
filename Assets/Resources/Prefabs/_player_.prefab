@@ -656,7 +656,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2053145890130045147}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.4200244, y: -2.189995, z: 0}
+  m_LocalPosition: {x: -5.420024, y: -2.189995, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1125,6 +1125,53 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
+--- !u!1 &3663507336180531472
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6343967936442230805}
+  - component: {fileID: 2108775243666593320}
+  m_Layer: 0
+  m_Name: Hurt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6343967936442230805
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3663507336180531472}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 188254364839739304}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2108775243666593320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3663507336180531472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c06aaa3a79227d4794610b27e538215, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Core>k__BackingField: {fileID: 0}
+  anim: {fileID: 7400000, guid: e85b7168897460d4d8295bbaba701cb0, type: 2}
+  animationDuration: 1
 --- !u!1 &3681489279521417626
 GameObject:
   m_ObjectHideFlags: 0
@@ -1556,6 +1603,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 514e4dc7718670749bee4ebcb84767e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Animator>k__BackingField: {fileID: 0}
+  <Body>k__BackingField: {fileID: 0}
   playernumber: 1
   health: 42
   energy: 0
@@ -1628,7 +1677,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57098e6ce5d090a48b5b8b301a998c09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Animator>k__BackingField: {fileID: 63062309}
+  <Body>k__BackingField: {fileID: 4219867603245107076}
   playerData: {fileID: 5950740443372790170}
+  hurt: {fileID: 2108775243666593320}
+  idle: {fileID: 2086666518118478367}
+  hurtStateTime: 1
 --- !u!1 &5095721726106327531
 GameObject:
   m_ObjectHideFlags: 0
@@ -1745,6 +1799,7 @@ Transform:
   - {fileID: 3310663367613878380}
   - {fileID: 5405894651412523059}
   - {fileID: 2315554845384884606}
+  - {fileID: 6343967936442230805}
   m_Father: {fileID: 4219867603245107078}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

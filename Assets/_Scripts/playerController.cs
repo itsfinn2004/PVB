@@ -18,6 +18,7 @@ namespace FistFury
         private bool isGrounded;
         public SpriteRenderer spriteRenderer;
         public PlayerData pd;
+        public combatmanager cm;
         public bool inputEnabled = true;
 
         [Header("state checks")]
@@ -29,6 +30,7 @@ namespace FistFury
         private bool isLKick;
         private bool isMKick;
         private bool isJumpKick;
+        
 
         [Header("Behaviors")]
         [SerializeField] private Idle idle;
@@ -45,6 +47,8 @@ namespace FistFury
         [SerializeField] private JumpKick Jumpkick;
         [SerializeField] private Special special;
         [SerializeField] private Block block;
+        [SerializeField] private Hurt hurt;
+        
 #if UNITY_EDITOR
 
         private void OnValidate()
@@ -61,12 +65,15 @@ namespace FistFury
             special = GetComponentInChildren<Special>();
             block = GetComponentInChildren<Block>();
             Jumpkick = GetComponentInChildren<JumpKick>();
+            hurt = GetComponentInChildren<Hurt>();
+            
         }
 
 #endif
 
         private void Start()
         {
+            cm = GetComponent<combatmanager>();
             SetupInstances();
             StateMachine.Set(idle);
         }
@@ -162,6 +169,7 @@ namespace FistFury
         {
           
         }
+       
         public void onBlock(InputAction.CallbackContext context)
         {
             if (isGrounded == true)
@@ -218,6 +226,10 @@ namespace FistFury
                 newState = Lkick;
             else if (isMKick)
                 newState = Mkick;
+            else if (cm.GotHit)
+                newState = hurt;
+
+
             else
                 newState = idle;
 
