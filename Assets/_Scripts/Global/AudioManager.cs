@@ -1,8 +1,14 @@
+// Made by Niek Melet at 20/5/2025
+
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace FistFury.Global
 {
+    /// <summary>
+    /// Manages audio playback and caching of audio sources within the game.
+    /// Provides functionality to play audio clips by name and ensures a centralized audio management system.
+    /// </summary>
     public class AudioManager : MonoBehaviour
     {
         [SerializeField] private List<AudioClip> audioClips;
@@ -28,6 +34,14 @@ namespace FistFury.Global
 
         #endregion
 
+        /// <summary>
+        /// Initializes audio sources for all audio clips in the <see cref="audioClips"/> list.
+        /// </summary>
+        /// <remarks>
+        /// This method creates a new <see cref="GameObject"/> for each audio clip, attaches an <see cref="AudioSource"/> 
+        /// component to it, and configures the audio source. The initialized audio sources are cached in a dictionary 
+        /// for efficient access.
+        /// </remarks>
         private void InitializeAudioSources()
         {
             if (audioClips.Count == 0) return;
