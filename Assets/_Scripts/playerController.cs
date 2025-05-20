@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using FistFury.StateMachine;
@@ -51,10 +49,6 @@ namespace FistFury
         private MeleeType meleeType;
         private PunchType punchType;
         private KickType kickType;
-
-        private bool isLKick;
-        private bool isMKick;
-        private bool isJumpKick;
         
 
         [Header("Behaviors")]
@@ -152,15 +146,15 @@ namespace FistFury
         {
             if( isGrounded == true)
             {
-            isDucking = context.ReadValueAsButton();
-            movement = new Vector2(0f, 0f);
-
+                isDucking = context.ReadValueAsButton();
+                movement = new Vector2(0f, 0f);
             }
         }
         public void onJumpKick(InputAction.CallbackContext context)
         {
             
-                isJumpKick = context.ReadValueAsButton();
+            isAttacking = context.ReadValueAsButton();
+            meleeType = MeleeType.Kick;
             kickType = KickType.JumpKick;
             
         }
@@ -234,7 +228,11 @@ namespace FistFury
         {
             transform.Translate(movement * Time.deltaTime * 5f);
             SelectState();
-
+            CurrentState.Do();
+            if (CurrentState.IsComplete && CurrentState is Hurt)
+            {
+                StateMachine.Set(idle, true);
+            }
         }
 
         private void SelectState()
@@ -248,23 +246,21 @@ namespace FistFury
                 {
                     // move state logic
                     if (movement.x != 0 && isGrounded)
-                    {
                         newState = move;
-                    }
+                    else if (isDucking)
+                        newState = duck;
+                    else if (cm.GotHit)
+                        newState = hurt;
                     else
-                    {
                         newState = idle;
-                    }
                 }
                 else
-                    newState = jump;
+                    newState = jump;            
             }
-            else if (isJumping && !isGrounded)
+            else if (isJumping && !isGrounded && isAttacking)
             {
-                if (kickType == KickType.JumpKick)
-                {
+                if (meleeType == MeleeType.Kick && kickType == KickType.JumpKick)
                     newState = Jumpkick;
-                }
             }
             else
             {
@@ -299,7 +295,7 @@ namespace FistFury
             
 
             if (newState != null && newState != oldState)
-                StateMachine.Set(newState);
+                StateMachine.Set(newState, true);
         }
     }
 }

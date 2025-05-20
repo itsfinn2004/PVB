@@ -1581,6 +1581,7 @@ MonoBehaviour:
   jumpForce: 7
   spriteRenderer: {fileID: 5899796796311927681}
   pd: {fileID: 0}
+  cm: {fileID: 0}
   inputEnabled: 1
   idle: {fileID: 3041054439562155207}
   move: {fileID: 2914145835845755757}
@@ -1594,6 +1595,7 @@ MonoBehaviour:
   Jumpkick: {fileID: 8816860610817355782}
   special: {fileID: 3617597644784637371}
   block: {fileID: 5755290159982493016}
+  hurt: {fileID: 3395001760204334700}
 --- !u!61 &5899796796311927683
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1680,12 +1682,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57098e6ce5d090a48b5b8b301a998c09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Animator>k__BackingField: {fileID: 0}
-  <Body>k__BackingField: {fileID: 0}
   playerData: {fileID: 3680781839204543748}
-  hurt: {fileID: 3395001760204334700}
-  idle: {fileID: 3041054439562155207}
-  hurtStateDuration: 0.5
+  GotHit: 0
+  hurtStateTime: 1
 --- !u!1 &5914554922961747076
 GameObject:
   m_ObjectHideFlags: 0
@@ -2147,6 +2146,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Core>k__BackingField: {fileID: 0}
   anim: {fileID: 7400000, guid: e85b7168897460d4d8295bbaba701cb0, type: 2}
+  cm: {fileID: 6331543781488084430}
+  iframeTimer: 0.5
 --- !u!1 &9038524645722749095
 GameObject:
   m_ObjectHideFlags: 0

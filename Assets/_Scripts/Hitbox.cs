@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 //Gemaakt door finn streunding op 16 mei 2025
 namespace FistFury
@@ -20,7 +18,7 @@ namespace FistFury
             if (other.CompareTag("Hurtbox"))
             {
                 combatmanager targetCombat = other.GetComponentInParent<combatmanager>();
-                if (targetCombat != null)
+                if (targetCombat != null && !targetCombat.GotHit)
                 {
                     targetCombat.ReceiveHit(damage);
                     pd.AddEnergy(4);

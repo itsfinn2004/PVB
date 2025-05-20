@@ -1171,7 +1171,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Core>k__BackingField: {fileID: 0}
   anim: {fileID: 7400000, guid: e85b7168897460d4d8295bbaba701cb0, type: 2}
-  animationDuration: 1
+  cm: {fileID: 1005870086014876247}
+  iframeTimer: 0.5
 --- !u!1 &3681489279521417626
 GameObject:
   m_ObjectHideFlags: 0
@@ -1578,6 +1579,7 @@ MonoBehaviour:
   jumpForce: 7
   spriteRenderer: {fileID: 4219867603245107077}
   pd: {fileID: 5950740443372790170}
+  cm: {fileID: 0}
   inputEnabled: 0
   idle: {fileID: 2086666518118478367}
   move: {fileID: 3564894119455617563}
@@ -1591,6 +1593,7 @@ MonoBehaviour:
   Jumpkick: {fileID: 7537988772018167954}
   special: {fileID: 8010408655120125333}
   block: {fileID: 7542641600484644812}
+  hurt: {fileID: 2108775243666593320}
 --- !u!114 &5950740443372790170
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1677,11 +1680,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57098e6ce5d090a48b5b8b301a998c09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Animator>k__BackingField: {fileID: 63062309}
-  <Body>k__BackingField: {fileID: 4219867603245107076}
   playerData: {fileID: 5950740443372790170}
-  hurt: {fileID: 2108775243666593320}
-  idle: {fileID: 2086666518118478367}
+  GotHit: 0
   hurtStateTime: 1
 --- !u!1 &5095721726106327531
 GameObject:
