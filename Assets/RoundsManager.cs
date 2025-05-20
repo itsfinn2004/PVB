@@ -86,7 +86,7 @@ namespace FistFury
             currentTime = startTime;
             PlayercontrollerP1.inputEnabled = true;
             PlayercontrollerP2.inputEnabled = true;
-            //wel weer kunnen bewegen
+            
         }
 
 
@@ -116,10 +116,12 @@ namespace FistFury
         }
         private void EndGame(combatmanager winner)
         {
-        //zet hier de code neer die je moet hebben als de game klaar is  
-        
+            PlayercontrollerP1.inputEnabled = false;
+            PlayercontrollerP2.inputEnabled = false;
+            //zet hier de code neer die je moet hebben als de game klaar is  
 
-            
+
+
         }
 
     }
