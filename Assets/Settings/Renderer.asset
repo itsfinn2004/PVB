@@ -17,9 +17,9 @@ MonoBehaviour:
     IsEnabled: 1
     RenderPassEvent: 550
     CRTMaterial: {fileID: 2100000, guid: 26bcb09571aeac645b47c3d414866d77, type: 2}
-    Curvature: 0.1
-    PaniniDistance: 0.495
-    PaniniCropToFit: 0.6
+    Curvature: 0
+    PaniniDistance: 0.409
+    PaniniCropToFit: 1
     ScanlineIntensity: 0.175
     ScanlineCount: 65
     ScanlineSpeed: 2.81
@@ -31,7 +31,7 @@ MonoBehaviour:
     NoiseIntensity: 0.145
     VSyncLineWidth: 0.0261
     VSyncLineSpeed: 0.27
-    VSyncDistortion: 0.00349
+    VSyncDistortion: 0.0069
     VSyncFrequency: 0.571
     VSyncRandomness: 0.382
     VSyncJitter: 0.274
