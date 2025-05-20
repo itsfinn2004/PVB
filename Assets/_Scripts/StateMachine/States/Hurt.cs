@@ -7,20 +7,37 @@ namespace FistFury.StateMachine.States
     public class Hurt : State
     {
         [SerializeField] private AnimationClip anim;
-        combatmanager cm;
-
-        private void Awake()
+        public float iframeTimer;
+        private float timer;
+        private bool iframes;
+        
+        public override void Do()
         {
-            cm = GetComponentInParent<combatmanager>();
+            timer -= Time.deltaTime;
+            if(timer <= 0)
+            {
+                timer = 0; 
+                IsComplete = true;
+            }
         }
-
         public override void Enter()
         {
             base.Enter();
-
+            timer = iframeTimer;
+            iframes = true;
             // play animation
             if (Animator && anim)
                 Animator.Play(anim.name);
+           
+
+            
+        }
+
+        public override void Exit()
+        {
+            base.Exit();
+            iframes = false;
+         
         }
     }
 }

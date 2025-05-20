@@ -16,6 +16,7 @@ namespace FistFury
     {
         public PlayerData playerData;
         public bool GotHit;
+        public bool CanGetHit = true;
 
         // Time to stay in hurt state before returning to idle
         [SerializeField] private float hurtStateTime = 1.0f;
@@ -31,20 +32,23 @@ namespace FistFury
 
         public void ReceiveHit(int damage)
         {
-            Debug.Log($"{gameObject.name} received {damage} damage!");
-
-            playerData.health -= damage;
-            playerData.energy += 8;
-
-            GotHit = true;
-
-
-            if (playerData.health <= 0)
+            if (CanGetHit)
             {
-                Die();
+                Debug.Log($"{gameObject.name} received {damage} damage!");
+
+                playerData.health -= damage;
+                playerData.energy += 8;
+
+                GotHit = true;
+                CanGetHit = false;
+
+
+                if (playerData.health <= 0)
+                {
+                    Die();
+                }
             }
         }
-
        
 
         private void Die()

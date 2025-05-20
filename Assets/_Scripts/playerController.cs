@@ -9,6 +9,26 @@ using FistFury.Entities;
 namespace FistFury
 //Gemaakt door finn streunding op 16 mei 2025
 {
+    public enum MeleeType
+    {
+        Punch,
+        Kick
+    }
+
+    public enum PunchType
+    {
+        Light,
+        Medium,
+        Heavy
+    }
+
+    public enum KickType
+    {
+        Light,
+        Medium,
+        JumpKick
+    }
+
 
     public class playerController : Core
     {
@@ -25,8 +45,13 @@ namespace FistFury
         private bool isDucking;
         private bool isBlocking;
         private bool isJumping;
-        private bool isLpunch;
-        private bool isMpunch;
+
+        // attack state checks
+        private bool isAttacking;
+        private MeleeType meleeType;
+        private PunchType punchType;
+        private KickType kickType;
+
         private bool isLKick;
         private bool isMKick;
         private bool isJumpKick;
@@ -136,38 +161,52 @@ namespace FistFury
         {
             
                 isJumpKick = context.ReadValueAsButton();
+            kickType = KickType.JumpKick;
             
         }
 
         public void onLightPunch(InputAction.CallbackContext context)
         {
             
-            isLpunch = context.ReadValueAsButton();
-           
+            //isPunching = context.ReadValueAsButton();
+            isAttacking = context.ReadValueAsButton();
 
+            meleeType = MeleeType.Punch;
+            punchType = PunchType.Light; 
 
         }
         public void onMediumPunch(InputAction.CallbackContext context)
         {
-            isMpunch = context.ReadValueAsButton();
+            isAttacking = context.ReadValueAsButton();
+
+            meleeType = MeleeType.Punch;
+            punchType = PunchType.Medium;
         }
         public void onHeavyPunch(InputAction.CallbackContext context)
         {
-           
+            isAttacking = context.ReadValueAsButton();
 
+            meleeType = MeleeType.Punch;
+            punchType = PunchType.Heavy;
 
         }
         public void onLightKick(InputAction.CallbackContext context)
         {
-          isLKick = context.ReadValueAsButton();
+          //isLKick = context.ReadValueAsButton();
+            isAttacking = context.ReadValueAsButton();
+            meleeType = MeleeType.Kick;
+            kickType = KickType.Light;
         }
         public void onMediumKick(InputAction.CallbackContext context)
         {
-            isMKick = context.ReadValueAsButton();
+            isAttacking = context.ReadValueAsButton();
+
+            meleeType = MeleeType.Kick;
+            kickType = KickType.Medium;
         }
         public void onSpecial(InputAction.CallbackContext context)
         {
-          
+            
         }
        
         public void onBlock(InputAction.CallbackContext context)
@@ -176,7 +215,6 @@ namespace FistFury
             {
                 isBlocking = context.ReadValueAsButton();
                 movement = new Vector2(0f, 0f);
-
             }
         }
 
@@ -184,8 +222,6 @@ namespace FistFury
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            State oldState = StateMachine.CurrentState;
-            State newState = idle;
             if (collision.gameObject.CompareTag("Ground"))
             {
                 isGrounded = true;
@@ -204,36 +240,65 @@ namespace FistFury
         private void SelectState()
         {
             State oldState = StateMachine.CurrentState;
-            State newState = idle;
-
-
-            if (isDucking)
-                newState = duck;
-            else if (isBlocking)
-                newState = block;
-            else if (isJumpKick && !isGrounded)
-                newState = Jumpkick;
-            else if (isJumping)
-                newState = jump;
-
-            else if (Mathf.Abs(movement.x) > 0.01f)
-                newState = move;
-            else if (isLpunch)
-                newState = Lpunch;
-            else if (isMpunch)
-                newState = Mpunch;
-            else if (isLKick)
-                newState = Lkick;
-            else if (isMKick)
-                newState = Mkick;
-            else if (cm.GotHit)
-                newState = hurt;
-
-
+            State newState = null;
+            
+            if (!isAttacking)
+            {
+                if (!isJumping && isGrounded)
+                {
+                    // move state logic
+                    if (movement.x != 0 && isGrounded)
+                    {
+                        newState = move;
+                    }
+                    else
+                    {
+                        newState = idle;
+                    }
+                }
+                else
+                    newState = jump;
+            }
+            else if (isJumping && !isGrounded)
+            {
+                if (kickType == KickType.JumpKick)
+                {
+                    newState = Jumpkick;
+                }
+            }
             else
-                newState = idle;
+            {
+                if (meleeType == MeleeType.Punch)
+                {
+                    switch (punchType)
+                    {
+                        case PunchType.Light:
+                            newState = Lpunch;
+                            break;
 
-            if (newState != oldState)
+                        case PunchType.Medium:
+                            newState = Mpunch;
+                            break;
+                    }
+                }
+                else if (meleeType == MeleeType.Kick)
+                {
+                    switch (kickType)
+                    {
+                        case KickType.Light:
+                            newState = Lkick;
+                            break;
+
+                        case KickType.Medium:
+                            newState = Mkick;
+                            break;
+                    }
+                }
+                
+            }
+            
+
+            if (newState != null && newState != oldState)
                 StateMachine.Set(newState);
         }
     }
