@@ -233,10 +233,10 @@ namespace FistFury
             if (!inputEnabled)
                 return;
 
-                meleeType = MeleeType.Punch;
-                punchType = PunchType.Special;
             if (pd.energy >= 60 && isDucking)
             {
+                meleeType = MeleeType.Punch;
+                punchType = PunchType.Special;
                 GameObject projectile = Instantiate(specialBall, specialTransform.position, Quaternion.identity);
 
                 // Match the scale of the shooter to determine direction

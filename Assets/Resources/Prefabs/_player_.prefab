@@ -1097,7 +1097,7 @@ GameObject:
   - component: {fileID: 8368510809150104978}
   m_Layer: 0
   m_Name: HitboxLpunch
-  m_TagString: Hurtbox
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2208,7 +2208,7 @@ GameObject:
   - component: {fileID: 4714971162889539887}
   m_Layer: 0
   m_Name: HitboxMpunch
-  m_TagString: Hurtbox
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
