@@ -1,6 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
+
 //Gemaakt door finn streunding op 19 mei 2025
 
 namespace FistFury
@@ -8,6 +8,13 @@ namespace FistFury
     public class combatmanager : MonoBehaviour
     {
         public PlayerData playerData;
+        public bool GotHit;
+
+        // Time to stay in hurt state before returning to idle
+        [SerializeField] private float hurtStateTime = 1.0f;
+        private Coroutine hurtCoroutine;
+
+
 
         private void Awake()
         {
@@ -22,33 +29,29 @@ namespace FistFury
             playerData.health -= damage;
             playerData.energy += 8;
 
+            GotHit = true;
+
             if (playerData.health <= 0)
             {
                 Die();
             }
         }
-
-
+       
 
         private void Die()
         {
-           
-
             if (playerData.lifes == 0)
             {
                 // spel klaar
             }
             else
             {
-                {
-                    Debug.Log($"{gameObject.name} is KO'd.");
-                    playerData.lifeimages[playerData.lifes - 1].gameObject.SetActive(false);
-                    playerData.lifes -= 1;
+                Debug.Log($"{gameObject.name} is KO'd.");
+                playerData.lifeimages[playerData.lifes - 1].gameObject.SetActive(false);
+                playerData.lifes -= 1;
 
-                    FindObjectOfType<RoundsManager>().NewRound(); 
-                }
+                FindObjectOfType<RoundsManager>().NewRound();
             }
-
         }
 
         public void onNewRound()

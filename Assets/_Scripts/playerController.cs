@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using FistFury.StateMachine;
@@ -9,6 +7,27 @@ using FistFury.Entities;
 namespace FistFury
 //Gemaakt door finn streunding op 16 mei 2025
 {
+    public enum MeleeType
+    {
+        Punch,
+        Kick
+    }
+
+    public enum PunchType
+    {
+        Light,
+        Medium,
+        Heavy,
+        Special
+    }
+
+    public enum KickType
+    {
+        Light,
+        Medium,
+        JumpKick
+    }
+
 
     public class playerController : Core
     {
@@ -18,17 +37,22 @@ namespace FistFury
         private bool isGrounded;
         public SpriteRenderer spriteRenderer;
         public PlayerData pd;
+        public combatmanager cm;
         public bool inputEnabled = true;
+        public GameObject specialBall;
+        public Transform specialTransform;
 
         [Header("state checks")]
         private bool isDucking;
         private bool isBlocking;
         private bool isJumping;
-        private bool isLpunch;
-        private bool isMpunch;
-        private bool isLKick;
-        private bool isMKick;
-        private bool isJumpKick;
+
+        // attack state checks
+        private bool isAttacking;
+        private MeleeType meleeType;
+        private PunchType punchType;
+        private KickType kickType;
+
 
         [Header("Behaviors")]
         [SerializeField] private Idle idle;
@@ -45,6 +69,8 @@ namespace FistFury
         [SerializeField] private JumpKick Jumpkick;
         [SerializeField] private Special special;
         [SerializeField] private Block block;
+        [SerializeField] private Hurt hurt;
+
 #if UNITY_EDITOR
 
         private void OnValidate()
@@ -61,40 +87,43 @@ namespace FistFury
             special = GetComponentInChildren<Special>();
             block = GetComponentInChildren<Block>();
             Jumpkick = GetComponentInChildren<JumpKick>();
+            hurt = GetComponentInChildren<Hurt>();
+
         }
 
 #endif
 
         private void Start()
         {
+            //hier word de combat manager gemaakt en zort dat je standaard state op idle staat als je begint
+            cm = GetComponent<combatmanager>();
             SetupInstances();
             StateMachine.Set(idle);
         }
         private void Awake()
         {
-            
+
             rb = GetComponent<Rigidbody2D>();
             SetupInstances();
             StateMachine.Set(idle);
         }
-       
+
 
 
         public void onHorizontalMove(InputAction.CallbackContext context)
         {
+            if (!inputEnabled)
+                return;
+
             float input = context.ReadValue<float>();
 
-
-            if (!isDucking && inputEnabled)
+            if (!isDucking && !isAttacking)
             {
                 movement = new Vector2(input, 0f);
             }
 
-
-
-            if (!isDucking )
+            if (!isDucking) // als je links of rechts gaat flipt je sprite en hitboxes
             {
-
                 if (movement.x < 0)
                     transform.localScale = new Vector3(-1, 1, 1);
                 else if (movement.x > 0)
@@ -104,125 +133,239 @@ namespace FistFury
 
         public void onJump(InputAction.CallbackContext context)
         {
+            if (!inputEnabled)
+                return;
+
             Debug.Log("spring test");
 
-            if (context.performed && isGrounded && !isDucking && inputEnabled)
+            if (context.performed && isGrounded && !isDucking)
             {
                 isJumping = context.ReadValueAsButton();
                 rb.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
                 isGrounded = false;
-               
-
             }
         }
 
         public void onDuck(InputAction.CallbackContext context)
         {
-            if( isGrounded == true)
-            {
-            isDucking = context.ReadValueAsButton();
-            movement = new Vector2(0f, 0f);
+            Debug.Log("Quak");
+            if (!inputEnabled)
+                return;
 
+            if (isGrounded == true)
+            {
+                isDucking = context.ReadValueAsButton();
+                movement = new Vector2(0f, 0f);
             }
         }
         public void onJumpKick(InputAction.CallbackContext context)
         {
-            
-                isJumpKick = context.ReadValueAsButton();
-            
+            if (!inputEnabled)
+                return;
+
+            if (!isGrounded) // je moet in de lucht zijn voordat je dit kan doen
+            {
+                isAttacking = context.ReadValueAsButton();
+                meleeType = MeleeType.Kick;
+                kickType = KickType.JumpKick;
+            }
         }
 
         public void onLightPunch(InputAction.CallbackContext context)
         {
-            
-            isLpunch = context.ReadValueAsButton();
-           
+            if (!inputEnabled)
+                return;
 
-
+            isAttacking = context.ReadValueAsButton();
+            movement = Vector2.zero;
+            meleeType = MeleeType.Punch;
+            punchType = PunchType.Light;
         }
+
         public void onMediumPunch(InputAction.CallbackContext context)
         {
-            isMpunch = context.ReadValueAsButton();
+            if (!inputEnabled)
+                return;
+
+            isAttacking = context.ReadValueAsButton();
+            movement = Vector2.zero;
+            meleeType = MeleeType.Punch;
+            punchType = PunchType.Medium;
         }
+
         public void onHeavyPunch(InputAction.CallbackContext context)
         {
-           
+            if (!inputEnabled)
+                return;
 
-
+            isAttacking = context.ReadValueAsButton();
+            movement = Vector2.zero;
+            meleeType = MeleeType.Punch;
+            punchType = PunchType.Heavy;
         }
+
         public void onLightKick(InputAction.CallbackContext context)
         {
-          isLKick = context.ReadValueAsButton();
+            if (!inputEnabled)
+                return;
+
+            isAttacking = context.ReadValueAsButton();
+            movement = Vector2.zero;
+            Debug.Log("Light Kick input received");
+            meleeType = MeleeType.Kick;
+            kickType = KickType.Light;
         }
+
         public void onMediumKick(InputAction.CallbackContext context)
         {
-            isMKick = context.ReadValueAsButton();
+            if (!inputEnabled)
+                return;
+
+            isAttacking = context.ReadValueAsButton();
+            movement = Vector2.zero;
+            Debug.Log("medium Kick input received");
+            meleeType = MeleeType.Kick;
+            kickType = KickType.Medium;
         }
+
         public void onSpecial(InputAction.CallbackContext context)
         {
-          
+            if (!inputEnabled)
+                return;
+
+                meleeType = MeleeType.Punch;
+                punchType = PunchType.Special;
+            if (pd.energy >= 60 && isDucking)
+            {
+                GameObject projectile = Instantiate(specialBall, specialTransform.position, Quaternion.identity);
+
+                // Match the scale of the shooter to determine direction
+                projectile.transform.localScale = new Vector3(transform.localScale.x, 1, 1);
+                Debug.Log("HOLLOW PURPLEEEEEEEEEE");
+                pd.energy -= 60;
+            }
         }
+
         public void onBlock(InputAction.CallbackContext context)
         {
+            if (!inputEnabled)
+                return;
+
             if (isGrounded == true)
             {
                 isBlocking = context.ReadValueAsButton();
                 movement = new Vector2(0f, 0f);
-
             }
         }
 
-
-
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            State oldState = StateMachine.CurrentState;
-            State newState = idle;
-            if (collision.gameObject.CompareTag("Ground"))
+            if (collision.gameObject.CompareTag("Ground")) // ground check
             {
                 isGrounded = true;
                 isJumping = false;
-                
             }
         }
 
         private void Update()
         {
-            transform.Translate(movement * Time.deltaTime * 5f);
+            Move();
             SelectState();
+            CurrentState.Do();
 
+            // Handle state completion
+            if (CurrentState.IsComplete)
+            { 
+                if (isAttacking)
+                {
+                    isAttacking = false;
+                }
+                //hij zet de state weer op idle als isAttacking false is
+                StateMachine.Set(idle, true);
+            }
+        }
+
+        private void Move()
+        {
+            if (!isAttacking)
+                transform.Translate(movement * Time.deltaTime * 5f);
         }
 
         private void SelectState()
         {
             State oldState = StateMachine.CurrentState;
-            State newState = idle;
+            State newState = null;
 
-
-            if (isDucking)
-                newState = duck;
-            else if (isBlocking)
-                newState = block;
-            else if (isJumpKick && !isGrounded)
-                newState = Jumpkick;
-            else if (isJumping)
-                newState = jump;
-
-            else if (Mathf.Abs(movement.x) > 0.01f)
-                newState = move;
-            else if (isLpunch)
-                newState = Lpunch;
-            else if (isMpunch)
-                newState = Mpunch;
-            else if (isLKick)
-                newState = Lkick;
-            else if (isMKick)
-                newState = Mkick;
+            if (!isAttacking) //hier worden alle niet movement states ingezet
+            {
+                if (!isJumping && isGrounded)
+                {
+                    // move state logica
+                    if (movement.x != 0 && isGrounded)
+                        newState = move;
+                    else if (isDucking)
+                        newState = duck;
+                    else if (cm.GotHit)
+                        newState = hurt;
+                    else
+                        newState = idle;
+                }
+                else // als je niet aanvalt en je bent niet grounded gaat je state op jump
+                    newState = jump;
+            }
+            else if (isJumping && !isGrounded && isAttacking) //als je in de lucht een kick doet doe je een jmp kick
+            {
+                if (meleeType == MeleeType.Kick && kickType == KickType.JumpKick)
+                    newState = Jumpkick;
+            }
             else
-                newState = idle;
+            {   // logica om te weten welke punch je doet
+                Debug.Log($"Melee Type: {meleeType.ToString()}");
+                if (meleeType == MeleeType.Punch)
+                {
+                    switch (punchType)
+                    {
+                        case PunchType.Light:
+                            newState = Lpunch;
+                            break;
 
-            if (newState != oldState)
-                StateMachine.Set(newState);
+                        case PunchType.Medium:
+                            newState = Mpunch;
+                            break;
+
+                        case PunchType.Heavy:
+                            newState = Hpunch;
+                            break;
+                        case PunchType.Special:
+                            newState = special;
+                            break;
+                    }
+                }
+                //logica op welke kick je doet
+                else if (meleeType == MeleeType.Kick)
+                {
+                    switch (kickType)
+                    {
+                        case KickType.Light:
+                            newState = Lkick;
+                            break;
+
+                        case KickType.Medium:
+                            newState = Mkick;
+                            break;
+
+                        default:
+                            Debug.Log("Dit zou niet moeten gebeuren????");
+                            break;
+                    }
+                }
+            }
+
+            
+            if (newState != null && newState != oldState)
+            {
+                StateMachine.Set(newState, true);
+            }
         }
     }
 }
