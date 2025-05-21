@@ -13,15 +13,16 @@ namespace FistFury
             Rigidbody2D rb = GetComponent<Rigidbody2D>();
             if (rb != null)
             {
-                
-                rb.velocity = transform.right * shootForce;
+                // Check the local scale to determine direction (1 = right, -1 = left)
+                float direction = transform.localScale.x > 0 ? 1f : -1f;
+
+                // Move the projectile in that direction
+                rb.velocity = new Vector2(direction * shootForce, 0f);
             }
             else
             {
-                Debug.LogWarning("Geen Rigidbody2D gevonden op het object.");
+                Debug.LogWarning("No Rigidbody2D found on the projectile.");
             }
-            
         }
-       
     }
 }

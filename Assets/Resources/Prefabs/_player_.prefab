@@ -1396,46 +1396,6 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 4219867603245107074}
         m_TargetAssemblyTypeName: FistFury.playerController, Assembly-CSharp
-        m_MethodName: onHorizontalMove
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 97697281-924e-47e4-92ff-480d204cb788
-    m_ActionName: Player1/horizontal move[/Keyboard/a,/Keyboard/d,/XInputControllerWindows/leftStick/left,/XInputControllerWindows/leftStick/right]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4219867603245107074}
-        m_TargetAssemblyTypeName: FistFury.playerController, Assembly-CSharp
-        m_MethodName: onJump
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 565cc778-e4fd-41f7-8e02-b0b40289b40f
-    m_ActionName: Player1/vertical move[/Keyboard/w,/XInputControllerWindows/leftStick/up]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 56c9151e-e17f-499f-966d-ad89d08f6835
-    m_ActionName: Player2/horizontal move[/Keyboard/leftArrow,/Keyboard/rightArrow,/XInputControllerWindows/leftStick/left,/XInputControllerWindows/leftStick/right]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 6c255147-97e3-4567-9c1a-5de326fe7216
-    m_ActionName: Player2/vertical move[/Keyboard/upArrow,/XInputControllerWindows/leftStick/up]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4219867603245107074}
-        m_TargetAssemblyTypeName: FistFury.playerController, Assembly-CSharp
         m_MethodName: onDuck
         m_Mode: 0
         m_Arguments:
@@ -1584,6 +1544,70 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 50a054e3-664d-4b73-af46-1da19a495fee
     m_ActionName: Player1/Block[/Keyboard/b]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4219867603245107074}
+        m_TargetAssemblyTypeName: FistFury.playerController, Assembly-CSharp
+        m_MethodName: onJump
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: b47d5e22-4628-460c-a61e-af94929d4297
+    m_ActionName: Player1/vertical move[/Keyboard/upArrow]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4219867603245107074}
+        m_TargetAssemblyTypeName: FistFury.playerController, Assembly-CSharp
+        m_MethodName: onHorizontalMove
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 61d54691-b7ce-46bc-8971-b828a41e16f0
+    m_ActionName: Player1/horizontal move[/Keyboard/leftArrow,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2b0a7d49-9e60-47df-b268-2a38910ae9b9
+    m_ActionName: Player2/horizontal move[/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 81c3d3ad-203b-4830-bb6d-ded8b1519f70
+    m_ActionName: Player2/vertical move[/Keyboard/w]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6ccfd18e-b819-419a-9477-085d412f72a6
+    m_ActionName: Player2/Block[/Keyboard/b]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b71aa81b-734b-4b61-8e28-ff02c5675211
+    m_ActionName: Player2/HeavyKick[/Keyboard/v]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6fbb0bac-8d71-41bc-9972-051a0715beda
+    m_ActionName: Player2/LightKick[/Keyboard/c]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9dd8830c-58ad-45e9-b1e1-a914c37d45ac
+    m_ActionName: Player2/HeavyPunch[/Keyboard/h]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ab5162b0-45a6-4f84-aac5-6b74288b9f93
+    m_ActionName: Player2/MediumPunch[/Keyboard/g]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 78587c38-d322-4ef7-9576-2705fb364b88
+    m_ActionName: Player2/LightPunch[/Keyboard/f]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Player1Scheme
   m_DefaultActionMap: Player1

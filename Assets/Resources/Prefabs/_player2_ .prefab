@@ -583,6 +583,37 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &2629151634111506632
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1222347155531831753}
+  m_Layer: 0
+  m_Name: specialballtransform
+  m_TagString: Untagged
+  m_Icon: {fileID: 8418204508859773708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1222347155531831753
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2629151634111506632}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.36, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5899796796311927680}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3077382986630342555
 GameObject:
   m_ObjectHideFlags: 0
@@ -1369,6 +1400,7 @@ Transform:
   - {fileID: 13268751838633821}
   - {fileID: 4753542075073309505}
   - {fileID: 5329881385875553481}
+  - {fileID: 1222347155531831753}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1472,46 +1504,6 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 97697281-924e-47e4-92ff-480d204cb788
-    m_ActionName: Player1/horizontal move[/Keyboard/a,/Keyboard/d,/XInputControllerWindows/leftStick/left,/XInputControllerWindows/leftStick/right]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 565cc778-e4fd-41f7-8e02-b0b40289b40f
-    m_ActionName: Player1/vertical move[/Keyboard/w,/XInputControllerWindows/leftStick/up]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5899796796311927692}
-        m_TargetAssemblyTypeName: FistFury.playerController, Assembly-CSharp
-        m_MethodName: onHorizontalMove
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 56c9151e-e17f-499f-966d-ad89d08f6835
-    m_ActionName: Player2/horizontal move[/Keyboard/leftArrow,/Keyboard/rightArrow,/XInputControllerWindows/leftStick/left,/XInputControllerWindows/leftStick/right]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5899796796311927692}
-        m_TargetAssemblyTypeName: FistFury.playerController, Assembly-CSharp
-        m_MethodName: onJump
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 6c255147-97e3-4567-9c1a-5de326fe7216
-    m_ActionName: Player2/vertical move[/Keyboard/upArrow,/XInputControllerWindows/leftStick/up]
-  - m_PersistentCalls:
-      m_Calls: []
     m_ActionId: 62283047-afa3-4390-86d0-012a3358eb66
     m_ActionName: Player1/duck[/XInputControllerWindows/leftStick/down,/DualSenseGamepadHID/leftStick/down,/Keyboard/s]
   - m_PersistentCalls:
@@ -1533,7 +1525,7 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: cc26a589-fda0-416d-b849-c0a08098c94f
-    m_ActionName: Player1/LightPunch[/Keyboard/f]
+    m_ActionName: Player1/Punch[/Keyboard/f,/Keyboard/g,/Keyboard/h]
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: 9952010f-c5c6-47e3-819a-2631aac5b36f
@@ -1556,8 +1548,188 @@ MonoBehaviour:
     m_ActionName: Player1/Block[/Keyboard/b]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: a4378a37-1018-4c62-b1b8-d842d7ec3dc4
-    m_ActionName: Player1/Special[/Keyboard/n]
+    m_ActionId: b47d5e22-4628-460c-a61e-af94929d4297
+    m_ActionName: Player1/vertical move[/Keyboard/upArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 61d54691-b7ce-46bc-8971-b828a41e16f0
+    m_ActionName: Player1/horizontal move[/Keyboard/leftArrow,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5899796796311927692}
+        m_TargetAssemblyTypeName: FistFury.playerController, Assembly-CSharp
+        m_MethodName: onHorizontalMove
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 2b0a7d49-9e60-47df-b268-2a38910ae9b9
+    m_ActionName: Player2/horizontal move[/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5899796796311927692}
+        m_TargetAssemblyTypeName: FistFury.playerController, Assembly-CSharp
+        m_MethodName: onJump
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 81c3d3ad-203b-4830-bb6d-ded8b1519f70
+    m_ActionName: Player2/vertical move[/Keyboard/w]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5899796796311927692}
+        m_TargetAssemblyTypeName: FistFury.playerController, Assembly-CSharp
+        m_MethodName: onBlock
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 6ccfd18e-b819-419a-9477-085d412f72a6
+    m_ActionName: Player2/Block[/Keyboard/b]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5899796796311927692}
+        m_TargetAssemblyTypeName: FistFury.playerController, Assembly-CSharp
+        m_MethodName: onMediumKick
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5899796796311927692}
+        m_TargetAssemblyTypeName: FistFury.playerController, Assembly-CSharp
+        m_MethodName: onJumpKick
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: b71aa81b-734b-4b61-8e28-ff02c5675211
+    m_ActionName: Player2/HeavyKick[/Keyboard/v]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5899796796311927692}
+        m_TargetAssemblyTypeName: FistFury.playerController, Assembly-CSharp
+        m_MethodName: onLightKick
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5899796796311927692}
+        m_TargetAssemblyTypeName: FistFury.playerController, Assembly-CSharp
+        m_MethodName: onJumpKick
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 6fbb0bac-8d71-41bc-9972-051a0715beda
+    m_ActionName: Player2/LightKick[/Keyboard/c]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5899796796311927692}
+        m_TargetAssemblyTypeName: FistFury.playerController, Assembly-CSharp
+        m_MethodName: onHeavyPunch
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5899796796311927692}
+        m_TargetAssemblyTypeName: FistFury.playerController, Assembly-CSharp
+        m_MethodName: onSpecial
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 9dd8830c-58ad-45e9-b1e1-a914c37d45ac
+    m_ActionName: Player2/HeavyPunch[/Keyboard/h]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5899796796311927692}
+        m_TargetAssemblyTypeName: FistFury.playerController, Assembly-CSharp
+        m_MethodName: onMediumPunch
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5899796796311927692}
+        m_TargetAssemblyTypeName: FistFury.playerController, Assembly-CSharp
+        m_MethodName: onSpecial
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: ab5162b0-45a6-4f84-aac5-6b74288b9f93
+    m_ActionName: Player2/MediumPunch[/Keyboard/g]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5899796796311927692}
+        m_TargetAssemblyTypeName: FistFury.playerController, Assembly-CSharp
+        m_MethodName: onLightPunch
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 78587c38-d322-4ef7-9576-2705fb364b88
+    m_ActionName: Player2/LightPunch[/Keyboard/f]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Player2Scheme
   m_DefaultActionMap: Player2
@@ -1580,9 +1752,11 @@ MonoBehaviour:
   rb: {fileID: 5899796796311927694}
   jumpForce: 7
   spriteRenderer: {fileID: 5899796796311927681}
-  pd: {fileID: 0}
-  cm: {fileID: 0}
+  pd: {fileID: 3680781839204543748}
+  cm: {fileID: 6331543781488084430}
   inputEnabled: 1
+  specialBall: {fileID: 129297582036952751, guid: 98b039a2c68c0454d8328b9fdbdae851, type: 3}
+  specialTransform: {fileID: 1222347155531831753}
   idle: {fileID: 3041054439562155207}
   move: {fileID: 2914145835845755757}
   jump: {fileID: 295613970466736944}
@@ -1638,7 +1812,7 @@ MonoBehaviour:
   <Body>k__BackingField: {fileID: 0}
   playernumber: 2
   health: 100
-  energy: 0
+  energy: 80
   lifes: 3
   lifeimages:
   - {fileID: 2846436421867753882}
@@ -1907,7 +2081,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Core>k__BackingField: {fileID: 0}
-  anim: {fileID: 0}
+  anim: {fileID: 7400000, guid: c89c27c7d813f1b4cbe161bf9c137bc8, type: 2}
 --- !u!1 &7148346628360867798
 GameObject:
   m_ObjectHideFlags: 0

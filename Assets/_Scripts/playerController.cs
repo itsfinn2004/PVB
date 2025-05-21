@@ -237,7 +237,10 @@ namespace FistFury
                 punchType = PunchType.Special;
             if (pd.energy >= 60 && isDucking)
             {
-                Instantiate(specialBall, specialTransform.position, specialTransform.rotation);
+                GameObject projectile = Instantiate(specialBall, specialTransform.position, Quaternion.identity);
+
+                // Match the scale of the shooter to determine direction
+                projectile.transform.localScale = new Vector3(transform.localScale.x, 1, 1);
                 Debug.Log("HOLLOW PURPLEEEEEEEEEE");
                 pd.energy -= 60;
             }
