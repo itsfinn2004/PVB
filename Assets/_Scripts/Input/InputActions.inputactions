@@ -85,15 +85,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "Special",
-                    "type": "Button",
-                    "id": "a4378a37-1018-4c62-b1b8-d842d7ec3dc4",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -314,17 +305,6 @@
                     "processors": "",
                     "groups": "Player1Scheme",
                     "action": "Block",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "6b4b78ec-3847-444d-97ec-24716c73934e",
-                    "path": "<Keyboard>/n",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Player1Scheme",
-                    "action": "Special",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

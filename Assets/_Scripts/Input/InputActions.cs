@@ -109,15 +109,6 @@ namespace FistFury.Input
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Special"",
-                    ""type"": ""Button"",
-                    ""id"": ""a4378a37-1018-4c62-b1b8-d842d7ec3dc4"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -338,17 +329,6 @@ namespace FistFury.Input
                     ""processors"": """",
                     ""groups"": ""Player1Scheme"",
                     ""action"": ""Block"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""6b4b78ec-3847-444d-97ec-24716c73934e"",
-                    ""path"": ""<Keyboard>/n"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Player1Scheme"",
-                    ""action"": ""Special"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -591,7 +571,6 @@ namespace FistFury.Input
             m_Player1_LightKick = m_Player1.FindAction("LightKick", throwIfNotFound: true);
             m_Player1_HeavyKick = m_Player1.FindAction("HeavyKick", throwIfNotFound: true);
             m_Player1_Block = m_Player1.FindAction("Block", throwIfNotFound: true);
-            m_Player1_Special = m_Player1.FindAction("Special", throwIfNotFound: true);
             // Player2
             m_Player2 = asset.FindActionMap("Player2", throwIfNotFound: true);
             m_Player2_horizontalmove = m_Player2.FindAction("horizontal move", throwIfNotFound: true);
@@ -667,7 +646,6 @@ namespace FistFury.Input
         private readonly InputAction m_Player1_LightKick;
         private readonly InputAction m_Player1_HeavyKick;
         private readonly InputAction m_Player1_Block;
-        private readonly InputAction m_Player1_Special;
         public struct Player1Actions
         {
             private @InputActions m_Wrapper;
@@ -681,7 +659,6 @@ namespace FistFury.Input
             public InputAction @LightKick => m_Wrapper.m_Player1_LightKick;
             public InputAction @HeavyKick => m_Wrapper.m_Player1_HeavyKick;
             public InputAction @Block => m_Wrapper.m_Player1_Block;
-            public InputAction @Special => m_Wrapper.m_Player1_Special;
             public InputActionMap Get() { return m_Wrapper.m_Player1; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -718,9 +695,6 @@ namespace FistFury.Input
                 @Block.started += instance.OnBlock;
                 @Block.performed += instance.OnBlock;
                 @Block.canceled += instance.OnBlock;
-                @Special.started += instance.OnSpecial;
-                @Special.performed += instance.OnSpecial;
-                @Special.canceled += instance.OnSpecial;
             }
 
             private void UnregisterCallbacks(IPlayer1Actions instance)
@@ -752,9 +726,6 @@ namespace FistFury.Input
                 @Block.started -= instance.OnBlock;
                 @Block.performed -= instance.OnBlock;
                 @Block.canceled -= instance.OnBlock;
-                @Special.started -= instance.OnSpecial;
-                @Special.performed -= instance.OnSpecial;
-                @Special.canceled -= instance.OnSpecial;
             }
 
             public void RemoveCallbacks(IPlayer1Actions instance)
@@ -872,7 +843,6 @@ namespace FistFury.Input
             void OnLightKick(InputAction.CallbackContext context);
             void OnHeavyKick(InputAction.CallbackContext context);
             void OnBlock(InputAction.CallbackContext context);
-            void OnSpecial(InputAction.CallbackContext context);
         }
         public interface IPlayer2Actions
         {

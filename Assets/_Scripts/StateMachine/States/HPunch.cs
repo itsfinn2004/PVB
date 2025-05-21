@@ -34,9 +34,10 @@ namespace FistFury.StateMachine.States
 
         public override void Do()
         {
+            if (!anim) return;
             base.Do();
 
-
+            
             if (!animationComplete)
             {
                 animationTimer += Time.deltaTime;

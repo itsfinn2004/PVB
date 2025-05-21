@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Core>k__BackingField: {fileID: 0}
-  anim: {fileID: 0}
+  anim: {fileID: 7400000, guid: c89c27c7d813f1b4cbe161bf9c137bc8, type: 2}
 --- !u!1 &40690955832585607
 GameObject:
   m_ObjectHideFlags: 0
@@ -386,6 +386,37 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.6605687, y: 2.8659365}
   m_EdgeRadius: 0
+--- !u!1 &1481986521088685543
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7718032082407394339}
+  m_Layer: 0
+  m_Name: specialtransformPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 8418204508859773708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7718032082407394339
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1481986521088685543}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.37, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4219867603245107078}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1646149972534825544
 GameObject:
   m_ObjectHideFlags: 0
@@ -1259,6 +1290,7 @@ Transform:
   - {fileID: 188254364839739304}
   - {fileID: 4690076500311452792}
   - {fileID: 5148540456614307033}
+  - {fileID: 7718032082407394339}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1450,6 +1482,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 4219867603245107074}
+        m_TargetAssemblyTypeName: FistFury.playerController, Assembly-CSharp
+        m_MethodName: onSpecial
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 9952010f-c5c6-47e3-819a-2631aac5b36f
     m_ActionName: Player1/MediumPunch[/Keyboard/g]
   - m_PersistentCalls:
@@ -1540,22 +1584,6 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 50a054e3-664d-4b73-af46-1da19a495fee
     m_ActionName: Player1/Block[/Keyboard/b]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4219867603245107074}
-        m_TargetAssemblyTypeName: FistFury.playerController, Assembly-CSharp
-        m_MethodName: onSpecial
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: a4378a37-1018-4c62-b1b8-d842d7ec3dc4
-    m_ActionName: Player1/Special[/Keyboard/n]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Player1Scheme
   m_DefaultActionMap: Player1
@@ -1581,6 +1609,8 @@ MonoBehaviour:
   pd: {fileID: 5950740443372790170}
   cm: {fileID: 0}
   inputEnabled: 0
+  specialBall: {fileID: 129297582036952751, guid: 98b039a2c68c0454d8328b9fdbdae851, type: 3}
+  specialTransform: {fileID: 7718032082407394339}
   idle: {fileID: 2086666518118478367}
   move: {fileID: 3564894119455617563}
   jump: {fileID: 5886977308314210695}
@@ -1610,7 +1640,7 @@ MonoBehaviour:
   <Body>k__BackingField: {fileID: 0}
   playernumber: 1
   health: 42
-  energy: 0
+  energy: 60
   lifes: 3
   lifeimages:
   - {fileID: 6273857231263360507}

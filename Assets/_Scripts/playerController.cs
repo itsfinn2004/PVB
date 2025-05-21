@@ -17,7 +17,8 @@ namespace FistFury
     {
         Light,
         Medium,
-        Heavy
+        Heavy,
+        Special
     }
 
     public enum KickType
@@ -38,6 +39,8 @@ namespace FistFury
         public PlayerData pd;
         public combatmanager cm;
         public bool inputEnabled = true;
+        public GameObject specialBall;
+        public Transform specialTransform;
 
         [Header("state checks")]
         private bool isDucking;
@@ -229,6 +232,15 @@ namespace FistFury
         {
             if (!inputEnabled)
                 return;
+
+                meleeType = MeleeType.Punch;
+                punchType = PunchType.Special;
+            if (pd.energy >= 60 && isDucking)
+            {
+                Instantiate(specialBall, specialTransform.position, specialTransform.rotation);
+                Debug.Log("HOLLOW PURPLEEEEEEEEEE");
+                pd.energy -= 60;
+            }
         }
 
         public void onBlock(InputAction.CallbackContext context)
@@ -320,6 +332,9 @@ namespace FistFury
 
                         case PunchType.Heavy:
                             newState = Hpunch;
+                            break;
+                        case PunchType.Special:
+                            newState = special;
                             break;
                     }
                 }
