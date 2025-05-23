@@ -44,3 +44,21 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: background
+    uniqueID: 3992775015
+    locked: 0
+  - name: Level
+    uniqueID: 2238504345
+    locked: 0
+  - name: foreground 1
+    uniqueID: 2308787733
+    locked: 0
+  - name: foreground 2
+    uniqueID: 830392751
+    locked: 0
+  - name: player
+    uniqueID: 3072764869
+    locked: 0
+  - name: ability
+    uniqueID: 1023306475
+    locked: 0

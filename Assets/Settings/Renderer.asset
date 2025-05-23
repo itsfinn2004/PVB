@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Active: 1
   Settings:
-    IsEnabled: 0
+    IsEnabled: 1
     RenderPassEvent: 550
     CRTMaterial: {fileID: 2100000, guid: 26bcb09571aeac645b47c3d414866d77, type: 2}
-    Curvature: 0
-    PaniniDistance: 0.409
-    PaniniCropToFit: 1
+    Curvature: 0.17
+    PaniniDistance: 0.052
+    PaniniCropToFit: 0
     ScanlineIntensity: 0.175
     ScanlineCount: 65
     ScanlineSpeed: 2.81
