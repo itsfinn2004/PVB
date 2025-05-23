@@ -20,13 +20,13 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/StateMachine Sample Scene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Map 1 Sample.unity
     guid: 6a723316d9e963b4fa0b594b018fb73a
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Map2 Sample.unity
     guid: 02b7745a3dda01f4e8e13e8771e85c31
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Map3 Sample.unity
     guid: e83bd1bda30898349af33fe294bc6938
   m_configObjects: {}
