@@ -10,6 +10,7 @@ namespace FistFury
         public PlayerData playerData;
         public playerController pc;
         public bool GotHit;
+        public bool beginround;
 
         // Time to stay in hurt state before returning to idle
         [SerializeField] private float hurtStateTime = 1.0f;
@@ -64,8 +65,12 @@ namespace FistFury
 
         public void onNewRound()
         {
+           
+            beginround = true;
             playerData.health = 100;
             transform.position = playerData.spawnpoint.position;
+            pc.inputEnabled = false;
+
         }
     }
 }

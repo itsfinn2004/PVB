@@ -61,6 +61,7 @@ namespace FistFury.StateMachine.States
             //zorg voor de zekerheid dat input weer aanstaat
             if (Pc != null && !Pc.inputEnabled)
                 Pc.inputEnabled = true;
+
         }
     }
 }

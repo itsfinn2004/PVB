@@ -78,6 +78,8 @@ namespace FistFury
             middletimer.text = "GO!";
             yield return new WaitForSeconds(1f);
 
+            PlayercontrollerP1.cm.beginround = false;
+            PlayercontrollerP2.cm.beginround = false;
             middletimer.gameObject.SetActive(false);
             toptimer.gameObject.SetActive(true);
             StartRound(); 
@@ -108,7 +110,7 @@ namespace FistFury
             }
             else if (player2.playerData.lifes <= 0)
             {
-                winnerText.SetText("Player 2  WINS!");
+                winnerText.SetText("Player 1  WINS!");
                 EndGame(player1);
                 return;
             }

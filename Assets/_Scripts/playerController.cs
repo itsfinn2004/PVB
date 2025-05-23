@@ -112,7 +112,8 @@ namespace FistFury
 
         public void onHorizontalMove(InputAction.CallbackContext context)
         {
-            if (!inputEnabled)
+
+            if (!inputEnabled || cm.beginround)
                 return;
 
             float input = context.ReadValue<float>();
@@ -121,6 +122,8 @@ namespace FistFury
             {
                 movement = new Vector2(input, 0f);
             }
+            else
+                movement = Vector2.zero;
 
             if (!isDucking && !isBlocking) // als je links of rechts gaat flipt je sprite en hitboxes
             {
@@ -133,7 +136,7 @@ namespace FistFury
 
         public void onJump(InputAction.CallbackContext context)
         {
-            if (!inputEnabled)
+            if (!inputEnabled || cm.beginround)
                 return;
 
             Debug.Log("spring test");
@@ -251,11 +254,14 @@ namespace FistFury
             if (!inputEnabled)
                 return;
 
+
             if (isGrounded == true)
             {
                 isBlocking = context.ReadValueAsButton();
-                movement = new Vector2(0f, 0f);
+              //  movement = new Vector2(0f, 0f);
             }
+            else
+                isBlocking = false;
         }
 
         private void OnCollisionEnter2D(Collision2D collision)
@@ -269,6 +275,11 @@ namespace FistFury
 
         private void Update()
         {
+            if (cm.beginround)
+            {
+                StateMachine.Set(idle, true); return;
+            }
+            
             Move();
             SelectState();
             CurrentState.Do();
@@ -298,21 +309,24 @@ namespace FistFury
 
             if (!isAttacking) //hier worden alle niet movement states ingezet
             {
+
                 if (!isJumping && isGrounded)
                 {
                     // move state logica
                     if (movement.x != 0 && isGrounded)
                         newState = move;
+                    else if (isBlocking)
+                        newState = block;
                     else if (isDucking)
                         newState = duck;
                     else if (cm.GotHit)
                         newState = hurt;
-                    else if (isBlocking)
-                        newState = block;
+                    
                     else
                         newState = idle;
                 }
-                else // als je niet aanvalt en je bent niet grounded gaat je state op jump
+                  
+                        else // als je niet aanvalt en je bent niet grounded gaat je state op jump
                     newState = jump;
             }
             else if (isJumping && !isGrounded && isAttacking) //als je in de lucht een kick doet doe je een jmp kick
@@ -321,7 +335,10 @@ namespace FistFury
                     newState = Jumpkick;
             }
             else
-            {   // logica om te weten welke punch je doet
+            {
+                if (isBlocking)
+                    return;
+                // logica om te weten welke punch je doet
                 Debug.Log($"Melee Type: {meleeType.ToString()}");
                 if (meleeType == MeleeType.Punch)
                 {
@@ -361,6 +378,7 @@ namespace FistFury
                             break;
                     }
                 }
+                
             }
 
             
