@@ -8,6 +8,7 @@ namespace FistFury
     public class combatmanager : MonoBehaviour
     {
         public PlayerData playerData;
+        public playerController pc;
         public bool GotHit;
 
         // Time to stay in hurt state before returning to idle
@@ -18,15 +19,22 @@ namespace FistFury
 
         private void Awake()
         {
-            if (playerData == null)
+            
                 playerData = GetComponent<PlayerData>();
+            pc = GetComponent<playerController>();
         }
 
         public void ReceiveHit(int damage)
         {
             Debug.Log($"{gameObject.name} received {damage} damage!");
-
+            if(pc.isBlocking)
+            {
+                playerData.health -= damage/10;
+            }
+            else
+            {
             playerData.health -= damage;
+            }
             playerData.energy += 8;
 
             GotHit = true;
