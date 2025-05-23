@@ -1558,7 +1558,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 1.5
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -1836,6 +1836,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Animator>k__BackingField: {fileID: 771363615961423397}
   <Body>k__BackingField: {fileID: 5899796796311927694}
+  movement: {x: 0, y: 0}
   rb: {fileID: 5899796796311927694}
   jumpForce: 7
   spriteRenderer: {fileID: 5899796796311927681}
