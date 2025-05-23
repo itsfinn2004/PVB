@@ -1969,6 +1969,7 @@ MonoBehaviour:
   playerData: {fileID: 5950740443372790170}
   pc: {fileID: 0}
   GotHit: 0
+  beginround: 0
   hurtStateTime: 1
 --- !u!1 &5095721726106327531
 GameObject:

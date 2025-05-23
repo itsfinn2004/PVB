@@ -178,33 +178,40 @@ namespace FistFury
         {
             if (!inputEnabled)
                 return;
+            if(!isDucking)
+            {
 
             isAttacking = context.ReadValueAsButton();
             movement = Vector2.zero;
             meleeType = MeleeType.Punch;
             punchType = PunchType.Light;
+            }
         }
 
         public void onMediumPunch(InputAction.CallbackContext context)
         {
             if (!inputEnabled)
                 return;
-
-            isAttacking = context.ReadValueAsButton();
-            movement = Vector2.zero;
-            meleeType = MeleeType.Punch;
-            punchType = PunchType.Medium;
+            if (!isDucking)
+            {
+                isAttacking = context.ReadValueAsButton();
+                movement = Vector2.zero;
+                meleeType = MeleeType.Punch;
+                punchType = PunchType.Medium;
+            }
         }
 
         public void onHeavyPunch(InputAction.CallbackContext context)
         {
             if (!inputEnabled)
                 return;
-
-            isAttacking = context.ReadValueAsButton();
-            movement = Vector2.zero;
-            meleeType = MeleeType.Punch;
-            punchType = PunchType.Heavy;
+            if (!isDucking)
+            {
+                isAttacking = context.ReadValueAsButton();
+                movement = Vector2.zero;
+                meleeType = MeleeType.Punch;
+                punchType = PunchType.Heavy;
+            }
         }
 
         public void onLightKick(InputAction.CallbackContext context)
@@ -212,23 +219,29 @@ namespace FistFury
             if (!inputEnabled)
                 return;
 
-            isAttacking = context.ReadValueAsButton();
-            movement = Vector2.zero;
-            Debug.Log("Light Kick input received");
-            meleeType = MeleeType.Kick;
-            kickType = KickType.Light;
+            if (!isDucking)
+            {
+                isAttacking = context.ReadValueAsButton();
+                movement = Vector2.zero;
+                Debug.Log("Light Kick input received");
+                meleeType = MeleeType.Kick;
+                kickType = KickType.Light;
+            }
         }
 
         public void onMediumKick(InputAction.CallbackContext context)
         {
             if (!inputEnabled)
                 return;
+            if (!isDucking)
+            {
 
-            isAttacking = context.ReadValueAsButton();
-            movement = Vector2.zero;
-            Debug.Log("medium Kick input received");
-            meleeType = MeleeType.Kick;
-            kickType = KickType.Medium;
+                isAttacking = context.ReadValueAsButton();
+                movement = Vector2.zero;
+                Debug.Log("medium Kick input received");
+                meleeType = MeleeType.Kick;
+                kickType = KickType.Medium;
+            }
         }
 
         public void onSpecial(InputAction.CallbackContext context)
@@ -255,7 +268,7 @@ namespace FistFury
                 return;
 
 
-            if (isGrounded == true)
+            if (isGrounded == true && !isDucking)
             {
                 isBlocking = context.ReadValueAsButton();
               //  movement = new Vector2(0f, 0f);
