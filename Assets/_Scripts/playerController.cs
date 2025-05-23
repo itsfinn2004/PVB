@@ -31,7 +31,7 @@ namespace FistFury
 
     public class playerController : Core
     {
-        private Vector2 movement;
+        public Vector2 movement;
         public Rigidbody2D rb;
         public float jumpForce = 7f;
         private bool isGrounded;
@@ -44,7 +44,7 @@ namespace FistFury
 
         [Header("state checks")]
         private bool isDucking;
-        private bool isBlocking;
+        public bool isBlocking;
         private bool isJumping;
 
         // attack state checks
@@ -117,12 +117,12 @@ namespace FistFury
 
             float input = context.ReadValue<float>();
 
-            if (!isDucking && !isAttacking)
+            if (!isDucking && !isAttacking && !isBlocking)
             {
                 movement = new Vector2(input, 0f);
             }
 
-            if (!isDucking) // als je links of rechts gaat flipt je sprite en hitboxes
+            if (!isDucking && !isBlocking) // als je links of rechts gaat flipt je sprite en hitboxes
             {
                 if (movement.x < 0)
                     transform.localScale = new Vector3(-1, 1, 1);
@@ -307,6 +307,8 @@ namespace FistFury
                         newState = duck;
                     else if (cm.GotHit)
                         newState = hurt;
+                    else if (isBlocking)
+                        newState = block;
                     else
                         newState = idle;
                 }

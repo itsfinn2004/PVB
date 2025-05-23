@@ -18,6 +18,8 @@ namespace FistFury
         [Header("UI")]
         public TextMeshProUGUI toptimer;
         public TextMeshProUGUI middletimer;
+        public TextMeshProUGUI winnerText;
+        public GameObject winscreen;
 
         [Header("Timers")]
         public int startTime = 99;
@@ -99,26 +101,31 @@ namespace FistFury
            
             if (player1.playerData.lifes <= 0)
             {
-                Debug.Log($"{player2.gameObject.name} WINS!");
+                Debug.Log($"Player 2  WINS!");
+                winnerText.SetText("Player 2  WINS!");
                 EndGame(player2);
                 return;
             }
             else if (player2.playerData.lifes <= 0)
             {
-                Debug.Log($"{player1.gameObject.name} WINS!");
+                winnerText.SetText("Player 2  WINS!");
                 EndGame(player1);
                 return;
             }
+            else
+            {
 
             player1.onNewRound();
             player2.onNewRound();
             StartCoroutine(RoundStartCountdown());
+            }
         }
         private void EndGame(combatmanager winner)
         {
-            PlayercontrollerP1.inputEnabled = false;
-            PlayercontrollerP2.inputEnabled = false;
-            //zet hier de code neer die je moet hebben als de game klaar is  
+            Destroy(player1.gameObject);
+            Destroy(player2.gameObject);
+            winscreen.SetActive(true);
+            
 
 
 

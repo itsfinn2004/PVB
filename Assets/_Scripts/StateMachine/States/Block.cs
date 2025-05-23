@@ -7,6 +7,7 @@ namespace FistFury.StateMachine.States
     public class Block : State
     {
         [SerializeField] private AnimationClip anim;
+        [SerializeField] private GameObject shield;
 
         public override void Enter()
         {
@@ -15,6 +16,11 @@ namespace FistFury.StateMachine.States
             // play animation
             if (Animator && anim)
                 Animator.Play(anim.name);
+        }
+        public override void Exit()
+        {
+            base.Exit();
+            shield.SetActive(false);
         }
     }
 }
