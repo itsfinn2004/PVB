@@ -7,10 +7,17 @@ namespace FistFury
     public class specialBall : MonoBehaviour
     {
         public float shootForce = 10f;
+        public playerController PlayercontrollerP1;
+        public playerController PlayercontrollerP2;
 
         void Start()
         {
             Rigidbody2D rb = GetComponent<Rigidbody2D>();
+            PlayercontrollerP1 = GameObject.Find("_player_(Clone)").GetComponent<playerController>();
+            PlayercontrollerP2 = GameObject.Find("_player2_ (Clone)").GetComponent<playerController>();
+
+         
+            
             if (rb != null)
             {
                 // Check the local scale to determine direction (1 = right, -1 = left)
@@ -23,6 +30,19 @@ namespace FistFury
             {
                 Debug.LogWarning("No Rigidbody2D found on the projectile.");
             }
+        }
+        private void Update()
+        {
+            if (PlayercontrollerP1.cm.beginround || PlayercontrollerP2.cm.beginround)
+            {
+                Destroy(gameObject);
+                
+            }
+        }
+
+        private void OnBecameInvisible()
+        {
+            Destroy(gameObject);
         }
     }
 }

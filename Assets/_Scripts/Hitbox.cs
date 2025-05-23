@@ -7,11 +7,13 @@ namespace FistFury
         combatmanager cm;
         PlayerData pd;
         public int damage = 10;
-        private void Awake()
+        private void Start()
         {
             pd = GetComponentInParent<PlayerData>();
             cm = GetComponentInParent<combatmanager>();
+           pd = GetComponentInParent<playerController>().pd;
         }
+        
 
         private void OnTriggerEnter2D(Collider2D other)
         {
