@@ -1,5 +1,6 @@
 // Made by Niek Melet on 15/5/2025
 
+using FistFury.Global;
 using UnityEngine;
 
 namespace FistFury.StateMachine.States
@@ -11,6 +12,8 @@ namespace FistFury.StateMachine.States
         public override void Enter()
         {
             base.Enter();
+            
+            AudioManager.Instance.Play("jump");
 
             // play animation
             if (Animator && anim)

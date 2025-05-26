@@ -1,5 +1,6 @@
 // Made by Finn Streunding on 16/5/2025
 
+using FistFury.Global;
 using UnityEngine;
 
 namespace FistFury.StateMachine.States
@@ -20,6 +21,7 @@ namespace FistFury.StateMachine.States
         {
             base.Enter();
 
+            AudioManager.Instance.Play("LPunch");
 
             if (Pc != null)
                 Pc.inputEnabled = false;

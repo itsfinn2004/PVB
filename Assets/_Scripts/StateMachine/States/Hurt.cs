@@ -1,5 +1,6 @@
 //Gemaakt door finn streunding op 16 mei 2025
 
+using FistFury.Global;
 using UnityEngine;
 
 namespace FistFury.StateMachine.States
@@ -16,6 +17,8 @@ namespace FistFury.StateMachine.States
         {
             base.Enter();
             timer = iframeTimer;
+            
+            AudioManager.Instance.Play("hurt");
             
             // play animation
             if (Animator && anim)
