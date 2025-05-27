@@ -9,6 +9,7 @@ namespace FistFury
 {
     public class playerSpawner : MonoBehaviour
     {
+        //deze script zorgt ervoor dat de spelers inspawnen als het spel begint
         public Transform[] spawnPoints;
         public GameObject[] playerPrefabs;
 
@@ -17,7 +18,7 @@ namespace FistFury
 
         void Awake()
         {
-            // Example setup: spawn 2 players
+            // hier spawnen de 2 spelers met de goeie inputs
             SpawnPlayer("Player1Scheme", Keyboard.current);         
             SpawnPlayer("Player2Scheme", Keyboard.current);         
 

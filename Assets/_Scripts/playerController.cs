@@ -6,6 +6,7 @@ using FistFury.Entities;
 
 namespace FistFury
 //Gemaakt door finn streunding op 16 mei 2025
+//deze script zorgt ervoor dat de spelers naar de goeie states gaan na elke input en zorgt er ook voor dat de spelers kunnen bewegen
 {
     public enum MeleeType
     {

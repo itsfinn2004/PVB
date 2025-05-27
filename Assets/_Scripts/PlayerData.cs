@@ -31,7 +31,7 @@ namespace FistFury
         {
 
 
-            if(playernumber == 1)
+            if(playernumber == 1) // hier moeten de spelers spawnen
             {
             spawnpoint = GameObject.Find("SpawnPosition p1").transform;
 
@@ -44,7 +44,7 @@ namespace FistFury
 
         }
         private void Update()
-        {
+        { //hier worden de sliders opgezet
             Healthslider.value = health;
             Energyslider.value = energy;
             if (health <= 1)
@@ -65,7 +65,7 @@ namespace FistFury
             }
 
         }
-
+        //hier zeg je waar energy erbij moet komen
         public void AddEnergy(int addenergy)
         {
             energy += addenergy;

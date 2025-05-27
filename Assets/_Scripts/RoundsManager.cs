@@ -8,6 +8,7 @@ namespace FistFury
 {
     public class RoundsManager : MonoBehaviour
     {
+        //deze script zorgt ervoor dat de rondes goed worden aangeroepen
         public combatmanager player1;
         public combatmanager player2;
         public playerController PlayercontrollerP1;
@@ -30,6 +31,7 @@ namespace FistFury
 
         private void Start()
         {
+            // hier word de combatmanager en de playercontroller van beide players aangeroepen
             player1 = GameObject.Find("_player_(Clone)").GetComponent<combatmanager>();
             player2 = GameObject.Find("_player2_ (Clone)").GetComponent<combatmanager>();
             PlayercontrollerP1 = GameObject.Find("_player_(Clone)").GetComponent<playerController>();
@@ -44,7 +46,7 @@ namespace FistFury
             
 
             currentTime -= Time.deltaTime;
-
+            //hier zet hij de timer die bovenin staat
             if (currentTime <= 0)
             {
                 currentTime = 0;
@@ -59,7 +61,7 @@ namespace FistFury
 
         IEnumerator RoundStartCountdown()
         {
-            
+         //hier is de timer die aftelt in het begin voordat de rone start   
             PlayercontrollerP1.inputEnabled = false;
             PlayercontrollerP2.inputEnabled = false;
 
@@ -100,7 +102,7 @@ namespace FistFury
         }
         public void NewRound()
         {
-           
+           //hier checkt ie of iemand nog levens heeft
             if (player1.playerData.lifes <= 0)
             {
                 Debug.Log($"Player 2  WINS!");
@@ -114,7 +116,7 @@ namespace FistFury
                 EndGame(player1);
                 return;
             }
-            else
+            else // hebben de spelers beide nog levens gaat ie een nieuwe ronde beginnen
             {
 
             player1.onNewRound();
@@ -123,7 +125,7 @@ namespace FistFury
             }
         }
         private void EndGame(combatmanager winner)
-        {
+        { // is het spel klaar delete hij beide spelers en zet een ... wint scherm op het scherm
             Destroy(player1.gameObject);
             Destroy(player2.gameObject);
             winscreen.SetActive(true);

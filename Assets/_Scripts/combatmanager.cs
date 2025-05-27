@@ -7,12 +7,13 @@ namespace FistFury
 {
     public class combatmanager : MonoBehaviour
     {
+        //deze script zorgt voor de combat en wat er gebeurd als je gehit word
         public PlayerData playerData;
         public playerController pc;
         public bool GotHit;
         public bool beginround;
 
-        // Time to stay in hurt state before returning to idle
+        // dit is hoelang je in de hurt state blijft
         [SerializeField] private float hurtStateTime = 1.0f;
         private Coroutine hurtCoroutine;
 
@@ -25,7 +26,7 @@ namespace FistFury
             pc = GetComponent<playerController>();
         }
 
-        public void ReceiveHit(int damage)
+        public void ReceiveHit(int damage)//dit hebeurt er als je gehit word
         {
             Debug.Log($"{gameObject.name} received {damage} damage!");
             if(pc.isBlocking)
